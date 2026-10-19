@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelola Blog — NAFA iSTORE</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0A0A0A', cream: '#F6F1E7', creamdark: '#E9E1CF', silver: { 100: '#F5F5F5', 200: '#E8E8E8', 300: '#D9D9D9' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['"Playfair Display"', 'serif'] },
+          borderRadius: { '4xl': '2.5rem' },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-silver-100 font-sans text-ink antialiased selection:bg-cream selection:text-ink">
+
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full bg-ink transition-transform duration-300 lg:translate-x-0"></aside>
+  <div id="sbBackdrop" class="fixed inset-0 z-30 hidden bg-ink/50 lg:hidden"></div>
+
+  <div class="lg:pl-64">
+    <header id="topbar" class="sticky top-0 z-20 border-b border-silver-200 bg-white/85 backdrop-blur-md"></header>
+
+    <main class="p-6 sm:p-10">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Daftar Artikel</h2>
+          <p class="mt-1 text-sm text-neutral-500">Artikel yang tampil di halaman Blog website.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <button id="btnReset" class="rounded-full border border-silver-300 bg-white px-5 py-3 text-sm font-semibold transition hover:border-ink" title="Kembali ke artikel bawaan">Kembalikan Default</button>
+          <button id="btnAdd" class="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800">+ Tulis Artikel</button>
+        </div>
+      </div>
+
+      <!-- Tabel -->
+      <div class="mt-6 overflow-hidden rounded-3xl border border-silver-200 bg-white">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[760px] text-left text-sm">
+            <thead>
+              <tr class="border-b border-silver-200 bg-silver-100 text-xs uppercase tracking-wider text-neutral-400">
+                <th class="p-5 font-semibold">Artikel</th>
+                <th class="p-5 font-semibold">Kategori</th>
+                <th class="p-5 font-semibold">Tanggal</th>
+                <th class="p-5 font-semibold">Baca</th>
+                <th class="p-5 text-right font-semibold">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="postRows"></tbody>
+          </table>
+        </div>
+        <p id="emptyPost" class="hidden p-12 text-center text-sm text-neutral-400">Belum ada artikel.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- ══════════ MODAL TAMBAH / EDIT ARTIKEL ══════════ -->
+  <div id="postModal" class="invisible fixed inset-0 z-[70] opacity-0 transition-all duration-300">
+    <div class="absolute inset-0 bg-ink/60 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="absolute inset-x-0 bottom-0 top-8 mx-auto max-w-3xl overflow-hidden rounded-t-4xl bg-white shadow-2xl sm:top-12">
+      <div class="flex items-center justify-between border-b border-silver-200 p-6">
+        <h3 id="modalTitle" class="text-lg font-semibold tracking-tight">Tulis Artikel</h3>
+        <button onclick="closeModal()" class="grid h-10 w-10 place-items-center rounded-full border border-silver-200 transition hover:bg-silver-100" aria-label="Tutup">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <form id="postForm" class="max-h-[calc(100vh-13rem)] space-y-5 overflow-y-auto p-6" novalidate>
+        <div>
+          <label class="text-sm font-medium" for="bTitle">Judul *</label>
+          <input id="bTitle" type="text" placeholder="Contoh: 5 Tips Merawat Baterai iPhone"
+                 class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white" />
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label class="text-sm font-medium" for="bCat">Kategori *</label>
+            <select id="bCat" class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white">
+              <option>Perawatan</option>
+              <option>Tips &amp; Trik</option>
+              <option>Panduan</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-sm font-medium" for="bDate">Tanggal *</label>
+            <input id="bDate" type="text" placeholder="12 Jan 2025"
+                   class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white" />
+          </div>
+          <div>
+            <label class="text-sm font-medium" for="bRead">Waktu Baca *</label>
+            <input id="bRead" type="text" placeholder="5 menit baca"
+                   class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white" />
+          </div>
+          <div>
+            <label class="text-sm font-medium" for="bImg">URL Gambar *</label>
+            <input id="bImg" type="url" placeholder="https://..."
+                   class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white" />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium" for="bExcerpt">Ringkasan *</label>
+          <input id="bExcerpt" type="text" placeholder="Satu-dua kalimat pengantar artikel"
+                 class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white" />
+        </div>
+        <div>
+          <label class="text-sm font-medium" for="bBody">Isi Artikel *</label>
+          <textarea id="bBody" rows="10" placeholder="Tulis isi artikel di sini.&#10;&#10;Baris kosong = paragraf baru.&#10;Awali baris dengan '## ' untuk membuat sub-judul, contoh:&#10;## 1. Jaga suhu, jangan sampai panas"
+                    class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm leading-relaxed outline-none transition focus:border-ink focus:bg-white"></textarea>
+          <p class="errBody mt-1.5 hidden text-xs text-red-500">Isi artikel minimal 2 paragraf.</p>
+        </div>
+        <p class="rounded-2xl bg-cream p-4 text-xs leading-relaxed text-ink/70">Preview bisa dilihat di halaman Blog website setelah disimpan.</p>
+        <div class="flex gap-3 pb-2">
+          <button type="submit" class="flex-1 rounded-full bg-ink px-8 py-4 text-sm font-semibold text-white transition hover:bg-neutral-800">Simpan Artikel</button>
+          <button type="button" onclick="closeModal()" class="rounded-full border border-silver-300 px-8 py-4 text-sm font-semibold transition hover:border-ink">Batal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="adminToast" class="pointer-events-none fixed bottom-6 left-1/2 z-[90] -translate-x-1/2 translate-y-20 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-cream opacity-0 shadow-2xl transition-all duration-300">
+    <span id="adminToastMsg"></span>
+  </div>
+
+  <script src="../js/data-blog.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    initShell('blog', 'Kelola Blog');
+
+    /* ============ State ============ */
+    let list = JSON.parse(JSON.stringify(POSTS));
+    let editingId = null;
+
+    const persist = () => localStorage.setItem('nafa_posts', JSON.stringify(list));
+
+    /* ============ Render ============ */
+    function render() {
+      postRows.innerHTML = list.map(p => `
+        <tr class="border-b border-silver-100 last:border-0 hover:bg-silver-100/60">
+          <td class="p-4">
+            <div class="flex items-center gap-4">
+              <img src="${escapeHTML(p.img)}" alt="" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Crect width=%2240%22 height=%2240%22 fill=%22%23F6F1E7%22/%3E%3C/svg%3E'" class="h-14 w-20 shrink-0 rounded-xl border border-silver-200 bg-cream object-cover" />
+              <div class="min-w-0">
+                <p class="max-w-md font-semibold leading-snug">${escapeHTML(p.title)}</p>
+                <p class="mt-0.5 line-clamp-1 max-w-md text-xs text-neutral-400">${escapeHTML(p.excerpt || '')}</p>
+              </div>
+            </div>
+          </td>
+          <td class="p-4"><span class="rounded-full bg-cream px-2.5 py-1 text-[11px] font-semibold">${escapeHTML(p.cat)}</span></td>
+          <td class="p-4 text-neutral-500">${escapeHTML(p.date)}</td>
+          <td class="p-4 text-neutral-500">${escapeHTML(p.read)}</td>
+          <td class="p-4">
+            <div class="flex justify-end gap-2">
+              <button onclick="openEdit('${p.id}')" class="rounded-full border border-silver-300 px-4 py-2 text-xs font-semibold transition hover:border-ink">Edit</button>
+              <button onclick="hapusPost('${p.id}')" class="rounded-full border border-red-200 px-4 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50">Hapus</button>
+            </div>
+          </td>
+        </tr>`).join('');
+
+      emptyPost.classList.toggle('hidden', list.length > 0);
+    }
+
+    /* ============ Modal ============ */
+    const modal = document.getElementById('postModal');
+    function openModal() { modal.classList.remove('invisible', 'opacity-0'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.classList.add('invisible', 'opacity-0'); document.body.style.overflow = ''; }
+
+    function uniqueId(base) {
+      let id = slugify(base) || 'artikel';
+      while (list.some(p => p.id === id)) id += '-2';
+      return id;
+    }
+
+    function openAdd() {
+      editingId = null;
+      modalTitle.textContent = 'Tulis Artikel';
+      postForm.reset();
+      bDate.value = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+      document.querySelector('.errBody').classList.add('hidden');
+      openModal();
+    }
+
+    function openEdit(id) {
+      const p = list.find(x => x.id === id);
+      if (!p) return;
+      editingId = id;
+      modalTitle.textContent = 'Edit Artikel';
+      bTitle.value = p.title; bCat.value = p.cat; bDate.value = p.date;
+      bRead.value = p.read; bImg.value = p.img; bExcerpt.value = p.excerpt;
+      bBody.value = (p.body || []).join('\n\n');
+      document.querySelector('.errBody').classList.add('hidden');
+      openModal();
+    }
+
+    /* ============ Simpan ============ */
+    postForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const title = bTitle.value.trim();
+      const img = bImg.value.trim();
+      const body = bBody.value.trim().split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+
+      if (title.length < 5 || !img || !bExcerpt.value.trim() || !bDate.value.trim() || !bRead.value.trim()) {
+        adminToast('⚠️ Lengkapi semua kolom bertanda *'); return;
+      }
+      const bodyValid = body.length >= 2;
+      document.querySelector('.errBody').classList.toggle('hidden', bodyValid);
+      if (!bodyValid) return;
+
+      const post = {
+        id: editingId || uniqueId(title),
+        title, cat: bCat.value, date: bDate.value.trim(), read: bRead.value.trim(),
+        img, excerpt: bExcerpt.value.trim(), body,
+      };
+
+      if (editingId) {
+        list = list.map(p => p.id === editingId ? post : p);
+        adminToast('✓ Artikel diperbarui');
+      } else {
+        list.unshift(post); // artikel terbaru di atas
+        adminToast('✓ Artikel dipublikasikan');
+      }
+      persist();
+      render();
+      closeModal();
+    });
+
+    /* ============ Hapus ============ */
+    async function hapusPost(id) {
+      const p = list.find(x => x.id === id);
+      if (!p) return;
+      const ya = await adminConfirm(`Hapus artikel "${p.title}"?`);
+      if (!ya) return;
+      list = list.filter(x => x.id !== id);
+      persist();
+      render();
+      adminToast('Artikel dihapus');
+    }
+
+    /* ============ Kembalikan default ============ */
+    document.getElementById('btnReset').addEventListener('click', async () => {
+      const ya = await adminConfirm('Kembalikan artikel ke data bawaan? Semua artikel buatanmu akan hilang.', 'Kembalikan');
+      if (!ya) return;
+      localStorage.removeItem('nafa_posts');
+      list = JSON.parse(JSON.stringify(DEFAULT_POSTS));
+      render();
+      adminToast('✓ Artikel kembali ke data bawaan');
+    });
+
+    /* ============ Binding ============ */
+    document.getElementById('btnAdd').addEventListener('click', openAdd);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('invisible')) closeModal(); });
+
+    if (new URLSearchParams(location.search).get('new')) openAdd();
+
+    render();
+  </script>
+</body>
+</html>

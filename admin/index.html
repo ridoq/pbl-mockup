@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin — NAFA iSTORE</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0A0A0A', cream: '#F6F1E7', creamdark: '#E9E1CF', silver: { 100: '#F5F5F5', 200: '#E8E8E8', 300: '#D9D9D9' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['"Playfair Display"', 'serif'] },
+          borderRadius: { '4xl': '2.5rem' },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-silver-100 font-sans text-ink antialiased selection:bg-cream selection:text-ink">
+
+  <!-- Shell: sidebar + topbar (di-inject admin.js) -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full bg-ink transition-transform duration-300 lg:translate-x-0"></aside>
+  <div id="sbBackdrop" class="fixed inset-0 z-30 hidden bg-ink/50 lg:hidden"></div>
+
+  <div class="lg:pl-64">
+    <header id="topbar" class="sticky top-0 z-20 border-b border-silver-200 bg-white/85 backdrop-blur-md"></header>
+
+    <main class="p-6 sm:p-10">
+      <!-- Statistik -->
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-3xl border border-silver-200 bg-white p-6">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-cream text-lg">📦</div>
+          <p class="mt-4 text-3xl font-semibold tracking-tight" id="statProduk">0</p>
+          <p class="mt-1 text-sm text-neutral-500">Produk di katalog</p>
+        </div>
+        <div class="rounded-3xl border border-silver-200 bg-white p-6">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-cream text-lg">📝</div>
+          <p class="mt-4 text-3xl font-semibold tracking-tight" id="statBlog">0</p>
+          <p class="mt-1 text-sm text-neutral-500">Artikel blog</p>
+        </div>
+        <div class="rounded-3xl border border-silver-200 bg-white p-6">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-cream text-lg">🧾</div>
+          <p class="mt-4 text-3xl font-semibold tracking-tight" id="statPesanan">0</p>
+          <p class="mt-1 text-sm text-neutral-500">Total pesanan</p>
+        </div>
+        <div class="rounded-3xl border border-ink bg-ink p-6 text-white">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 text-lg">🔔</div>
+          <p class="mt-4 text-3xl font-semibold tracking-tight" id="statBaru">0</p>
+          <p class="mt-1 text-sm text-neutral-400">Pesanan baru perlu diproses</p>
+        </div>
+      </div>
+
+      <!-- Pesanan terbaru -->
+      <div class="mt-8 rounded-3xl border border-silver-200 bg-white">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-silver-200 p-6">
+          <h2 class="font-semibold">Pesanan terbaru</h2>
+          <a href="pesanan.html" class="rounded-full border border-silver-300 px-5 py-2.5 text-xs font-semibold transition hover:border-ink">Lihat Semua →</a>
+        </div>
+        <div id="recentOrders" class="overflow-x-auto p-6"></div>
+      </div>
+
+      <!-- Aksi cepat -->
+      <div class="mt-8 grid gap-5 sm:grid-cols-3">
+        <a href="produk.html?new=1" class="group rounded-3xl border border-silver-200 bg-white p-6 transition hover:-translate-y-1 hover:border-creamdark hover:shadow-xl hover:shadow-silver-200/70">
+          <span class="text-2xl">📱</span>
+          <h3 class="mt-3 font-semibold group-hover:underline">Tambah Produk</h3>
+          <p class="mt-1 text-sm text-neutral-500">Lengkapi katalog iPhone baru & <em>second</em>.</p>
+        </a>
+        <a href="blog.html?new=1" class="group rounded-3xl border border-silver-200 bg-white p-6 transition hover:-translate-y-1 hover:border-creamdark hover:shadow-xl hover:shadow-silver-200/70">
+          <span class="text-2xl">✍️</span>
+          <h3 class="mt-3 font-semibold group-hover:underline">Tulis Artikel</h3>
+          <p class="mt-1 text-sm text-neutral-500">Bagikan tips & panduan seputar iPhone.</p>
+        </a>
+        <a href="../index.html" target="_blank" rel="noopener" class="group rounded-3xl border border-silver-200 bg-white p-6 transition hover:-translate-y-1 hover:border-creamdark hover:shadow-xl hover:shadow-silver-200/70">
+          <span class="text-2xl">🌐</span>
+          <h3 class="mt-3 font-semibold group-hover:underline">Lihat Website</h3>
+          <p class="mt-1 text-sm text-neutral-500">Cek tampilan terbaru untuk pengunjung.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <div id="adminToast" class="pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 translate-y-20 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-cream opacity-0 shadow-2xl transition-all duration-300">
+    <span id="adminToastMsg"></span>
+  </div>
+
+  <script src="../js/data-produk.js"></script>
+  <script src="../js/data-blog.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    initShell('dashboard', 'Dashboard');
+
+    const orders = (() => { try { return JSON.parse(localStorage.getItem('nafa_orders') || '[]'); } catch { return []; } })();
+    const newOrders = orders.filter(o => !o.status || o.status === 'Baru').length;
+
+    statProduk.textContent = PRODUCTS.length;
+    statBlog.textContent = POSTS.length;
+    statPesanan.textContent = orders.length;
+    statBaru.textContent = newOrders;
+
+    const fmtDate = iso => new Date(iso).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+    const statusChip = st => {
+      const s = st || 'Baru';
+      const cls = { 'Baru': 'bg-cream text-ink', 'Diproses': 'bg-silver-200 text-ink', 'Selesai': 'bg-ink text-cream', 'Dibatalkan': 'border border-red-200 bg-red-50 text-red-500' }[s] || 'bg-silver-200';
+      return `<span class="rounded-full px-2.5 py-1 text-[11px] font-semibold ${cls}">${s}</span>`;
+    };
+
+    const recent = orders.slice(-5).reverse();
+    recentOrders.innerHTML = recent.length ? `
+      <table class="w-full min-w-[640px] text-left text-sm">
+        <thead>
+          <tr class="text-xs uppercase tracking-wider text-neutral-400">
+            <th class="pb-3 font-semibold">Kode</th><th class="pb-3 font-semibold">Produk</th>
+            <th class="pb-3 font-semibold">Pelanggan</th><th class="pb-3 font-semibold">Jadwal</th>
+            <th class="pb-3 font-semibold">Total</th><th class="pb-3 font-semibold">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${recent.map(o => `
+            <tr class="border-t border-silver-200">
+              <td class="py-3.5 font-semibold">${escapeHTML(o.code)}</td>
+              <td class="py-3.5">${escapeHTML(o.name)}<span class="block text-xs text-neutral-400">${escapeHTML(o.storage || '')}</span></td>
+              <td class="py-3.5">${escapeHTML(o.customer?.name || '-')}<span class="block text-xs text-neutral-400">${escapeHTML(o.customer?.phone || '')}</span></td>
+              <td class="py-3.5 text-neutral-500">${o.date ? fmtDate(o.date) : '-'}<span class="block text-xs">${escapeHTML(o.time || '')}</span></td>
+              <td class="py-3.5 font-semibold">${fmtRp(o.price)}</td>
+              <td class="py-3.5">${statusChip(o.status)}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>` : `
+      <div class="py-10 text-center">
+        <p class="text-3xl">🧾</p>
+        <p class="mt-3 text-sm text-neutral-500">Belum ada pesanan. Pesanan dari halaman checkout website akan muncul di sini.</p>
+      </div>`;
+  </script>
+</body>
+</html>

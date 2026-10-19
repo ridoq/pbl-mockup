@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelola Pesanan — NAFA iSTORE</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0A0A0A', cream: '#F6F1E7', creamdark: '#E9E1CF', silver: { 100: '#F5F5F5', 200: '#E8E8E8', 300: '#D9D9D9' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['"Playfair Display"', 'serif'] },
+          borderRadius: { '4xl': '2.5rem' },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-silver-100 font-sans text-ink antialiased selection:bg-cream selection:text-ink">
+
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full bg-ink transition-transform duration-300 lg:translate-x-0"></aside>
+  <div id="sbBackdrop" class="fixed inset-0 z-30 hidden bg-ink/50 lg:hidden"></div>
+
+  <div class="lg:pl-64">
+    <header id="topbar" class="sticky top-0 z-20 border-b border-silver-200 bg-white/85 backdrop-blur-md"></header>
+
+    <main class="p-6 sm:p-10">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Daftar Pesanan</h2>
+          <p class="mt-1 text-sm text-neutral-500">Pesanan pickup yang masuk dari halaman checkout website.</p>
+        </div>
+        <div id="filterWrap" class="flex flex-wrap gap-2">
+          <button data-st="semua" class="stBtn rounded-full border border-silver-200 bg-white px-4 py-2.5 text-xs font-semibold transition">Semua</button>
+          <button data-st="Baru" class="stBtn rounded-full border border-silver-200 bg-white px-4 py-2.5 text-xs font-semibold transition">Baru</button>
+          <button data-st="Diproses" class="stBtn rounded-full border border-silver-200 bg-white px-4 py-2.5 text-xs font-semibold transition">Diproses</button>
+          <button data-st="Selesai" class="stBtn rounded-full border border-silver-200 bg-white px-4 py-2.5 text-xs font-semibold transition">Selesai</button>
+          <button data-st="Dibatalkan" class="stBtn rounded-full border border-silver-200 bg-white px-4 py-2.5 text-xs font-semibold transition">Dibatalkan</button>
+        </div>
+      </div>
+
+      <!-- Tabel -->
+      <div class="mt-6 overflow-hidden rounded-3xl border border-silver-200 bg-white">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[900px] text-left text-sm">
+            <thead>
+              <tr class="border-b border-silver-200 bg-silver-100 text-xs uppercase tracking-wider text-neutral-400">
+                <th class="p-5 font-semibold">Kode</th>
+                <th class="p-5 font-semibold">Produk</th>
+                <th class="p-5 font-semibold">Pelanggan</th>
+                <th class="p-5 font-semibold">Jadwal Ambil</th>
+                <th class="p-5 font-semibold">Total</th>
+                <th class="p-5 font-semibold">Status</th>
+                <th class="p-5 text-right font-semibold">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="orderRows"></tbody>
+          </table>
+        </div>
+        <p id="emptyOrder" class="hidden p-12 text-center text-sm text-neutral-400">Belum ada pesanan dengan status ini.</p>
+      </div>
+      <p class="mt-4 text-xs text-neutral-400">Data pesanan tersimpan di browser (localStorage). Saat website dipindah ke backend, halaman ini tinggal disambungkan ke database.</p>
+    </main>
+  </div>
+
+  <!-- Detail pesanan -->
+  <div id="orderModal" class="invisible fixed inset-0 z-[70] opacity-0 transition-all duration-300">
+    <div class="absolute inset-0 bg-ink/60 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="absolute inset-x-0 bottom-0 top-16 mx-auto max-w-lg overflow-hidden rounded-t-4xl bg-white shadow-2xl">
+      <div class="flex items-center justify-between border-b border-silver-200 p-6">
+        <h3 class="text-lg font-semibold tracking-tight">Detail Pesanan</h3>
+        <button onclick="closeModal()" class="grid h-10 w-10 place-items-center rounded-full border border-silver-200 transition hover:bg-silver-100" aria-label="Tutup">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div id="orderDetail" class="max-h-[calc(100vh-14rem)] overflow-y-auto p-6"></div>
+    </div>
+  </div>
+
+  <div id="adminToast" class="pointer-events-none fixed bottom-6 left-1/2 z-[90] -translate-x-1/2 translate-y-20 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-cream opacity-0 shadow-2xl transition-all duration-300">
+    <span id="adminToastMsg"></span>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    initShell('pesanan', 'Kelola Pesanan');
+
+    /* ============ State ============ */
+    const loadOrders = () => { try { return JSON.parse(localStorage.getItem('nafa_orders') || '[]'); } catch { return []; } };
+    let filter = 'semua';
+
+    const persist = orders => localStorage.setItem('nafa_orders', JSON.stringify(orders));
+
+    const fmtDate = iso => iso ? new Date(iso + 'T00:00:00').toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : '-';
+
+    const statusChip = st => {
+      const s = st || 'Baru';
+      const cls = { 'Baru': 'bg-cream text-ink', 'Diproses': 'bg-silver-200 text-ink', 'Selesai': 'bg-ink text-cream', 'Dibatalkan': 'border border-red-200 bg-red-50 text-red-500' }[s] || 'bg-silver-200';
+      return `<span class="rounded-full px-2.5 py-1 text-[11px] font-semibold ${cls}">${s}</span>`;
+    };
+
+    /* ============ Render ============ */
+    function render() {
+      const orders = loadOrders();
+      const list = orders.slice().reverse(); // terbaru di atas
+      const shown = filter === 'semua' ? list : list.filter(o => (o.status || 'Baru') === filter);
+
+      orderRows.innerHTML = shown.map((o, i) => {
+        const idx = orders.indexOf(o); // index asli di storage
+        return `
+        <tr class="border-b border-silver-100 last:border-0 hover:bg-silver-100/60">
+          <td class="p-4"><button onclick="openDetail(${idx})" class="font-semibold underline decoration-creamdark underline-offset-4 hover:decoration-ink">${escapeHTML(o.code)}</button>
+            <span class="mt-1 block text-xs text-neutral-400">${new Date(o.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}</span></td>
+          <td class="p-4">${escapeHTML(o.name)}<span class="block text-xs text-neutral-400">${escapeHTML(o.storage || '')} · ${escapeHTML(o.color || '')}</span></td>
+          <td class="p-4">${escapeHTML(o.customer?.name || '-')}<span class="block text-xs text-neutral-400">${escapeHTML(o.customer?.phone || '')}</span></td>
+          <td class="p-4 text-neutral-500">${fmtDate(o.date)}<span class="block text-xs">${escapeHTML(o.time || '')}</span></td>
+          <td class="p-4 font-semibold">${fmtRp(o.price)}</td>
+          <td class="p-4">
+            <select onchange="ubahStatus(${idx}, this.value)" class="rounded-full border border-silver-200 bg-white px-3 py-2 text-xs font-semibold outline-none focus:border-ink">
+              ${['Baru', 'Diproses', 'Selesai', 'Dibatalkan'].map(s => `<option ${s === (o.status || 'Baru') ? 'selected' : ''}>${s}</option>`).join('')}
+            </select>
+          </td>
+          <td class="p-4">
+            <div class="flex justify-end gap-2">
+              <button onclick="openDetail(${idx})" class="rounded-full border border-silver-300 px-4 py-2 text-xs font-semibold transition hover:border-ink">Detail</button>
+              <button onclick="hapusOrder(${idx})" class="rounded-full border border-red-200 px-4 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50">Hapus</button>
+            </div>
+          </td>
+        </tr>`;
+      }).join('');
+
+      emptyOrder.classList.toggle('hidden', shown.length > 0);
+
+      // styling tombol filter aktif
+      document.querySelectorAll('.stBtn').forEach(b => {
+        const active = b.dataset.st === filter;
+        b.classList.toggle('bg-ink', active);
+        b.classList.toggle('text-white', active);
+        b.classList.toggle('border-ink', active);
+      });
+    }
+
+    /* ============ Aksi ============ */
+    function ubahStatus(idx, st) {
+      const orders = loadOrders();
+      if (!orders[idx]) return;
+      orders[idx].status = st;
+      persist(orders);
+      render(); // refresh badge sidebar juga
+      adminToast(`Status ${orders[idx].code} → ${st}`);
+    }
+
+    async function hapusOrder(idx) {
+      const orders = loadOrders();
+      if (!orders[idx]) return;
+      const ya = await adminConfirm(`Hapus pesanan ${orders[idx].code}?`);
+      if (!ya) return;
+      orders.splice(idx, 1);
+      persist(orders);
+      render();
+      adminToast('Pesanan dihapus');
+    }
+
+    /* ============ Detail modal ============ */
+    const modal = document.getElementById('orderModal');
+    function openModal() { modal.classList.remove('invisible', 'opacity-0'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.classList.add('invisible', 'opacity-0'); document.body.style.overflow = ''; }
+
+    function openDetail(idx) {
+      const o = loadOrders()[idx];
+      if (!o) return;
+      const baris = (label, value) => `<div class="flex justify-between gap-6 border-b border-silver-100 py-3 text-sm"><span class="text-neutral-400">${label}</span><span class="text-right font-medium">${value}</span></div>`;
+      orderDetail.innerHTML = `
+        <div class="rounded-2xl bg-silver-100 p-5 text-center">
+          <p class="text-xs text-neutral-400">Kode Pesanan</p>
+          <p class="font-display mt-1 text-2xl font-bold tracking-wider">${escapeHTML(o.code)}</p>
+          <div class="mt-2 flex justify-center">${statusChip(o.status)}</div>
+        </div>
+        <div class="mt-5">
+          ${baris('Produk', `${escapeHTML(o.name)} (${escapeHTML(o.storage || '-')})`)}
+          ${baris('Warna', escapeHTML(o.color || '-'))}
+          ${baris('Total', fmtRp(o.price))}
+          ${baris('Metode', 'Pickup In Store')}
+          ${baris('Jadwal ambil', `${fmtDate(o.date)} · ${escapeHTML(o.time || '-')}`)}
+          ${baris('Nama', escapeHTML(o.customer?.name || '-'))}
+          ${baris('WhatsApp', escapeHTML(o.customer?.phone || '-'))}
+          ${baris('Email', escapeHTML(o.customer?.email || '-'))}
+        </div>
+        ${o.customer?.note ? `<div class="mt-4 rounded-2xl bg-cream p-4 text-sm leading-relaxed"><p class="font-semibold">Catatan pembeli:</p><p class="mt-1 text-ink/70">${escapeHTML(o.customer.note)}</p></div>` : ''}
+        <a href="https://wa.me/${(o.customer?.phone || '').replace(/[^0-9]/g, '').replace(/^0/, '62')}" target="_blank" rel="noopener"
+           class="mt-6 block rounded-full bg-ink px-8 py-4 text-center text-sm font-semibold text-white transition hover:bg-neutral-800">Hubungi via WhatsApp</a>`;
+      openModal();
+    }
+
+    /* ============ Binding ============ */
+    document.querySelectorAll('.stBtn').forEach(b => b.addEventListener('click', () => { filter = b.dataset.st; render(); }));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('invisible')) closeModal(); });
+
+    render();
+  </script>
+</body>
+</html>
