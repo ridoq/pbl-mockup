@@ -145,7 +145,7 @@
     <!-- Produk terkait -->
     <section class="mt-24">
       <h2 class="text-2xl font-semibold tracking-tight">Kamu mungkin juga suka</h2>
-      <div id="relatedGrid" class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="relatedGrid" class="mt-8 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4"></div>
     </section>
   </main>
 
@@ -170,38 +170,61 @@
   <script>
     /* ============ Load produk dari URL: ?id=xxx ============ */
     const params = new URLSearchParams(location.search);
-    const product = findProduct(params.get('id'));
+    const paramId = params.get('id');
+    let product = findProduct(paramId);
+
+    // Jika dibuka tanpa ?id=... langsung default ke produk pertama
+    if (!product && (!paramId || paramId === 'undefined') && PRODUCTS.length > 0) {
+      product = PRODUCTS[0];
+    }
 
     // State pilihan user
     let selStorage = null;
     let selColor = null;
 
-    if (!product) {
-      document.getElementById('productWrap').classList.add('hidden');
-      document.getElementById('descWrap').classList.add('hidden');
-      document.getElementById('notFound').classList.remove('hidden');
-      document.getElementById('breadcrumb').classList.add('hidden');
-    } else {
-      initPage();
+    function renderDetail() {
+      if (!product) {
+        document.getElementById('productWrap').classList.add('hidden');
+        document.getElementById('descWrap').classList.add('hidden');
+        document.getElementById('notFound').classList.remove('hidden');
+        document.getElementById('breadcrumb').classList.add('hidden');
+      } else {
+        document.getElementById('productWrap').classList.remove('hidden');
+        document.getElementById('descWrap').classList.remove('hidden');
+        document.getElementById('notFound').classList.add('hidden');
+        document.getElementById('breadcrumb').classList.remove('hidden');
+        initPage();
+      }
     }
 
+    renderDetail();
+
+    window.addEventListener('productsLoaded', () => {
+      const p = findProduct(params.get('id'));
+      if (p) product = p;
+      else if (!params.get('id') && PRODUCTS.length > 0) product = PRODUCTS[0];
+      renderDetail();
+    });
+
     function initPage() {
+      if (!product) return;
       document.title = `${product.name} — NAFA iSTORE`;
       bcName.textContent = product.name;
       pCat.textContent = product.cat;
       pName.textContent = product.name;
-      pMeta.textContent = `${product.rating} rating · ${product.sold} terjual`;
-      pDesc.textContent = product.desc;
+      pMeta.textContent = `${product.rating || 4.8} rating · ${product.sold || 0} terjual`;
+      pDesc.textContent = product.desc || `${product.name} original bergaransi resmi di NAFA iSTORE.`;
 
       // Spesifikasi
-      pSpecs.innerHTML = Object.entries(product.specs).map(([k, v]) => `
+      const specsObj = product.specs || {};
+      pSpecs.innerHTML = Object.entries(specsObj).map(([k, v]) => `
         <div class="flex justify-between gap-6 border-b border-silver-200 py-4 text-sm">
           <dt class="text-neutral-400">${k}</dt>
           <dd class="text-right font-medium">${v}</dd>
         </div>`).join('');
 
       // Galeri
-      const gallery = product.gallery || [product.img];
+      const gallery = Array.isArray(product.gallery) && product.gallery.length ? product.gallery : [product.img];
       mainImage.src = gallery[0];
       mainImage.alt = product.name;
       thumbs.innerHTML = gallery.map((src, i) => `
@@ -210,49 +233,56 @@
         </button>`).join('');
 
       // Kapasitas
-      selStorage = product.storages[0];
-      renderStorages();
+      const storages = Array.isArray(product.storages) && product.storages.length ? product.storages : [{ label: '128GB', price: product.price || 0 }];
+      selStorage = storages[0];
+      renderStorages(storages);
 
       // Warna
-      selColor = product.colors[0];
-      renderColors();
+      const colors = Array.isArray(product.colors) && product.colors.length ? product.colors : ['Default'];
+      selColor = colors[0];
+      renderColors(colors);
 
       // Tokopedia
       btnTokped.href = product.tokopedia || STORE.tokopedia;
 
       // Produk terkait (kategori sama, beda id)
-      const related = PRODUCTS.filter(p => p.id !== product.id && p.cat === product.cat)
-        .concat(PRODUCTS.filter(p => p.id !== product.id && p.cat !== product.cat))
-        .slice(0, 3);
+      const related = PRODUCTS.filter(p => p && p.id !== product.id && p.cat === product.cat)
+        .concat(PRODUCTS.filter(p => p && p.id !== product.id && p.cat !== product.cat))
+        .slice(0, 4);
       relatedGrid.innerHTML = related.map(productCardHTML).join('');
 
       updatePrice();
     }
 
-    function renderStorages() {
-      const base = product.storages[0].price;
-      storageOpts.innerHTML = product.storages.map(s => `
+    function renderStorages(storagesList) {
+      const list = storagesList || (product && product.storages) || [{ label: '128GB', price: product.price || 0 }];
+      const base = list[0].price;
+      storageOpts.innerHTML = list.map(s => `
         <button onclick="pickStorage('${s.label}', this)"
-          class="rounded-2xl border px-5 py-3 text-sm font-semibold transition ${s.label === selStorage.label ? 'border-ink bg-ink text-white' : 'border-silver-200 hover:border-creamdark'}">
+          class="rounded-2xl border px-5 py-3 text-sm font-semibold transition ${s.label === (selStorage ? selStorage.label : '') ? 'border-ink bg-ink text-white' : 'border-silver-200 hover:border-creamdark'}">
           ${s.label}
-          ${s.price > base ? `<span class="block text-[11px] font-normal ${s.label === selStorage.label ? 'text-neutral-300' : 'text-neutral-400'}">+${rupiah(s.price - base)}</span>` : ''}
+          ${s.price > base ? `<span class="block text-[11px] font-normal ${s.label === (selStorage ? selStorage.label : '') ? 'text-neutral-300' : 'text-neutral-400'}">+${rupiah(s.price - base)}</span>` : ''}
         </button>`).join('');
     }
 
-    function renderColors() {
-      colorLabel.textContent = selColor;
-      colorOpts.innerHTML = product.colors.map(c => `
+    function renderColors(colorsList) {
+      const list = colorsList || (product && product.colors) || ['Default'];
+      colorLabel.textContent = selColor || list[0];
+      colorOpts.innerHTML = list.map(c => `
         <button onclick="pickColor('${c}', this)"
           class="rounded-full border px-5 py-2.5 text-sm font-medium transition ${c === selColor ? 'border-ink bg-ink text-white' : 'border-silver-200 hover:border-creamdark'}">${c}</button>`).join('');
     }
 
     function pickStorage(label, btn) {
-      selStorage = product.storages.find(s => s.label === label);
-      renderStorages(); updatePrice();
+      const storages = (product && product.storages) || [{ label, price: product.price || 0 }];
+      selStorage = storages.find(s => s.label === label) || storages[0];
+      renderStorages(storages);
+      updatePrice();
     }
     function pickColor(color) {
       selColor = color;
-      renderColors();
+      const colors = (product && product.colors) || ['Default'];
+      renderColors(colors);
     }
     function switchImage(src, btn) {
       mainImage.src = src;
@@ -263,10 +293,12 @@
     }
 
     function updatePrice() {
-      pPrice.textContent = rupiah(selStorage.price);
-      pInstallment.textContent = `atau ${rupiah(Math.round(selStorage.price / 12))}/bulan · cicilan 0% 12x`;
-      // Update link checkout dengan pilihan user
-      btnBuy.href = `checkout.html?id=${product.id}&storage=${encodeURIComponent(selStorage.label)}&color=${encodeURIComponent(selColor)}`;
+      const price = selStorage ? selStorage.price : (product ? product.price : 0);
+      pPrice.textContent = rupiah(price);
+      pInstallment.textContent = `atau ${rupiah(Math.round(price / 12))}/bulan · cicilan 0% 12x`;
+      const sLabel = selStorage ? selStorage.label : '';
+      const cLabel = selColor || '';
+      btnBuy.href = `checkout.html?id=${product.id}&storage=${encodeURIComponent(sLabel)}&color=${encodeURIComponent(cLabel)}`;
     }
   </script>
 </body>

@@ -98,8 +98,11 @@
           <div>
             <label class="text-sm font-medium" for="pCat">Kategori *</label>
             <select id="pCat" class="mt-2 w-full rounded-2xl border border-silver-200 bg-silver-100 px-4 py-3 text-sm outline-none transition focus:border-ink focus:bg-white">
-              <option value="Standar">Standar</option>
-              <option value="Pro">Pro</option>
+              <option value="SE Series">SE Series</option>
+              <option value="Standard / Base Model">Standard / Base Model</option>
+              <option value="Plus Model">Plus Model</option>
+              <option value="Pro Model">Pro Model</option>
+              <option value="Pro Max Model">Pro Max Model</option>
             </select>
           </div>
           <div>
@@ -344,6 +347,10 @@
     if (new URLSearchParams(location.search).get('new')) openAdd();
 
     render();
+    window.addEventListener('productsLoaded', () => {
+      list = JSON.parse(JSON.stringify(PRODUCTS));
+      render();
+    });
   </script>
 </body>
 </html>

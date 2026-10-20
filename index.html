@@ -54,6 +54,23 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+            /* Hero: animasi mengambang halus */
+            @keyframes floaty {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-12px);
+                }
+            }
+            .animate-floaty {
+                animation: floaty 6s ease-in-out infinite;
+            }
+            .animate-floaty-slow {
+                animation: floaty 7.5s ease-in-out infinite;
+                animation-delay: 0.8s;
+            }
         </style>
     </head>
 
@@ -105,16 +122,46 @@
         <section class="px-4 pt-6 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl">
                 <div class="relative overflow-hidden rounded-4xl bg-ink">
-                    <div class="relative mt-10 h-72 sm:h-96 lg:mt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[58%]">
-                        <img
-                            src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1400&q=80&auto=format&fit=crop"
-                            alt="iPhone"
-                            class="h-full w-full object-cover opacity-90 lg:[mask-image:linear-gradient(to_right,transparent,black_22%)]"
-                        />
+                    <div class="relative mt-8 flex items-center justify-center px-4 sm:mt-10 sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:h-full lg:w-[48%] lg:justify-center">
+                        <!-- Ambient glow: burgundy utama + cream sekunder -->
+                        <div class="pointer-events-none absolute h-64 w-64 rounded-full bg-rose-900/25 blur-3xl lg:h-96 lg:w-96"></div>
+                        <div class="pointer-events-none absolute -bottom-10 right-8 h-52 w-52 rounded-full bg-cream/10 blur-3xl"></div>
+                        <!-- Ring dekoratif di belakang device -->
+                        <div class="pointer-events-none absolute h-[26rem] w-[26rem] rounded-full border border-white/10 lg:h-[30rem] lg:w-[30rem]"></div>
+                        <div class="pointer-events-none absolute h-80 w-80 rounded-full border border-white/5 lg:h-96 lg:w-96"></div>
+
+                        <div class="animate-floaty relative z-10 flex items-center justify-center">
+                            <div class="relative">
+                                <img
+                                    src="assets/img/herotest1.webp"
+                                    alt="iPhone 18 Pro Max Burgundy"
+                                    class="max-h-72 w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition duration-500 hover:scale-105 sm:max-h-96 lg:max-h-[470px] xl:max-h-[500px]"
+                                />
+
+                                <a
+                                    href="katalog.html"
+                                    class="animate-floaty-slow absolute -right-6 top-6 z-20 hidden items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 shadow-2xl backdrop-blur-md transition hover:border-cream/40 sm:flex lg:-right-8 lg:top-8"
+                                >
+                                    <span class="grid h-8 w-8 place-items-center rounded-xl bg-cream text-xs">📱</span>
+                                    <span>
+                                        <span class="block text-xs font-semibold text-white">iPhone 18 Pro Max</span>
+                                        <span class="block text-[11px] text-cream/70">Mulai Rp29.499.000</span>
+                                    </span>
+                                </a>
+
+                                <!-- Floating badge: garansi (pepet kiri bawah HP) -->
+                                <div
+                                    class="animate-floaty-slow absolute -left-8 bottom-8 z-20 hidden items-center gap-2.5 rounded-2xl border border-white/15 bg-white/10 px-4 py-2.5 shadow-2xl backdrop-blur-md sm:flex lg:-left-12 lg:bottom-10"
+                                >
+                                    <span class="grid h-7 w-7 place-items-center rounded-full bg-cream text-xs">✓</span>
+                                    <span class="text-xs font-semibold text-white">100% Original · Garansi Resmi</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="relative z-10 px-7 py-14 sm:px-12 sm:py-20 lg:max-w-[52%] lg:px-16 lg:py-28">
+                    <div class="relative z-10 px-6 pt-4 pb-12 sm:px-12 sm:py-20 lg:max-w-[52%] lg:px-16 lg:py-28">
                         <p class="text-xs font-semibold uppercase tracking-[0.25em] text-cream/60">World From Device</p>
-                        <h1 class="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                        <h1 class="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
                             Dunia teknologi,<br class="hidden sm:block" />
                             <span class="italic text-cream/90">dalam genggamanmu.</span>
                         </h1>
@@ -288,11 +335,19 @@
         <script src="js/data-produk.js"></script>
         <script>
             /* Render produk unggulan & marquee */
-            document.getElementById("featuredGrid").innerHTML = PRODUCTS.slice(0, 6).map(productCardHTML).join("");
-            const models = PRODUCTS.map((p) => p.name);
-            const marqueeHTML = models.map((m) => `<span>${m}</span><span class="text-ink/25">•</span>`).join("");
-            marqueeList.innerHTML = marqueeHTML;
-            marqueeList2.innerHTML = marqueeHTML;
+            function renderHomeProducts() {
+                const fg = document.getElementById("featuredGrid");
+                const items = Array.isArray(PRODUCTS) ? PRODUCTS.filter(Boolean) : [];
+                if (fg) fg.innerHTML = items.slice(0, 6).map(productCardHTML).join("");
+                const models = items.map((p) => (p && p.name ? p.name : '')).filter(Boolean);
+                const marqueeHTML = models.map((m) => `<span>${m}</span><span class="text-ink/25">•</span>`).join("");
+                const m1 = document.getElementById("marqueeList");
+                const m2 = document.getElementById("marqueeList2");
+                if (m1) m1.innerHTML = marqueeHTML;
+                if (m2) m2.innerHTML = marqueeHTML;
+            }
+            renderHomeProducts();
+            window.addEventListener("productsLoaded", renderHomeProducts);
 
             /* Menu mobile */
             const mobileMenu = document.getElementById("mobileMenu");

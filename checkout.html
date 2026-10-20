@@ -150,7 +150,7 @@
                 </div>
               </div>
               <p class="mt-4 flex items-start gap-2 text-xs leading-relaxed text-neutral-500">
-                📍 <span>${STORE.address} — ${STORE.hours}</span>
+                📍 <span id="storeScheduleText">Jl. Teknologi No. 88, Jakarta Selatan — Setiap hari, 09.00–21.00 WIB</span>
               </p>
             </div>
 
@@ -180,7 +180,7 @@
           <div class="mt-6 rounded-2xl bg-white p-5 text-sm leading-relaxed text-neutral-600">
             <p class="font-semibold text-ink">Instruksi pengambilan:</p>
             <ol class="mt-2 list-decimal space-y-1 pl-5">
-              <li>Datang sesuai jadwal ke <strong>${STORE.address}</strong></li>
+              <li>Datang sesuai jadwal ke <strong id="storePickupAddress">Jl. Teknologi No. 88, Jakarta Selatan</strong></li>
               <li>Tunjukkan kode pesanan + KTP/ID</li>
               <li>Tim kami akan unboxing & cek unit bareng kamu</li>
               <li>Pembayaran di tempat (cash / QRIS / debit / kartu kredit)</li>
@@ -222,34 +222,64 @@
   <script>
     /* ============ Load produk dari URL: ?id=&storage=&color= ============ */
     const params = new URLSearchParams(location.search);
-    const product = findProduct(params.get('id'));
+    const paramId = params.get('id');
+    let product = findProduct(paramId);
+
+    // Jika dibuka tanpa ?id=... default ke produk pertama
+    if (!product && (!paramId || paramId === 'undefined') && PRODUCTS.length > 0) {
+      product = PRODUCTS[0];
+    }
 
     let method = 'pickup';
     let storageLabel = params.get('storage') || null;
     let colorParam = params.get('color') || null;
     let activePrice = product ? product.price : 0;
 
-    if (!product) {
-      document.getElementById('checkoutWrap').classList.add('hidden');
-      document.getElementById('noProduct').classList.remove('hidden');
-    } else {
-      // Cocokkan storage dari URL dengan data
-      if (storageLabel) {
-        const found = product.storages.find(s => s.label === storageLabel);
-        if (found) activePrice = found.price;
+    function initCheckout() {
+      // Perbarui alamat toko dari STORE jika tersedia
+      if (typeof STORE !== 'undefined') {
+        const schedEl = document.getElementById('storeScheduleText');
+        const addrEl = document.getElementById('storePickupAddress');
+        if (schedEl) schedEl.textContent = `${STORE.address} — ${STORE.hours}`;
+        if (addrEl) addrEl.textContent = STORE.address;
       }
-      renderSummary();
-      setMinDate();
+
+      if (!product) {
+        document.getElementById('checkoutWrap').classList.add('hidden');
+        document.getElementById('noProduct').classList.remove('hidden');
+      } else {
+        document.getElementById('checkoutWrap').classList.remove('hidden');
+        document.getElementById('noProduct').classList.add('hidden');
+        if (storageLabel && Array.isArray(product.storages)) {
+          const found = product.storages.find(s => s.label === storageLabel);
+          if (found) activePrice = found.price;
+        } else if (product.price) {
+          activePrice = product.price;
+        }
+        renderSummary();
+        setMinDate();
+      }
     }
+    initCheckout();
+
+    window.addEventListener('productsLoaded', () => {
+      const p = findProduct(params.get('id'));
+      if (p) product = p;
+      else if (!params.get('id') && PRODUCTS.length > 0) product = PRODUCTS[0];
+      initCheckout();
+    });
 
     function renderSummary() {
-      const storage = storageLabel || product.storages[0].label;
-      const color = colorParam || product.colors[0];
+      if (!product) return;
+      const storages = Array.isArray(product.storages) && product.storages.length ? product.storages : [{ label: '128GB', price: product.price || 0 }];
+      const colors = Array.isArray(product.colors) && product.colors.length ? product.colors : ['Default'];
+      const storage = storageLabel || storages[0].label;
+      const color = colorParam || colors[0];
       summaryCard.innerHTML = `
         <div class="flex gap-4">
           <img src="${product.img}" alt="${product.name}" class="h-24 w-24 shrink-0 rounded-2xl border border-silver-200 bg-cream object-cover" />
           <div>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">${product.cat}</p>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">${product.cat || 'Standard / Base Model'}</p>
             <h3 class="mt-1 font-semibold leading-snug">${product.name}</h3>
             <p class="mt-1 text-xs text-neutral-500">${storage} · ${color}</p>
           </div>
