@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Katalog — NAFA iSTORE</title>
+
+          <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/config/tailwind.config.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+    <body class="bg-white font-sans text-ink antialiased selection:bg-cream selection:text-ink">
+        <!-- NAVBAR -->
+        <header class="sticky top-0 z-50 border-b border-silver-200 bg-white/85 backdrop-blur-md">
+            <nav class="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                <a href="index.html" class="flex items-center gap-3">
+                    <svg width="30" height="34" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            fill="#0A0A0A"
+                            d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.03 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+                        />
+                        <text x="11" y="15" text-anchor="middle" font-size="6" font-weight="800" fill="#F6F1E7" font-family="Inter, sans-serif">NF</text>
+                    </svg>
+                    <span class="font-display text-lg font-bold tracking-wide sm:text-xl">NAFA <span class="italic">i</span>STORE</span>
+                </a>
+                <ul class="hidden items-center gap-8 text-[15px] font-medium text-neutral-600 md:flex">
+                    <li><a href="index.html" class="transition hover:text-ink">Beranda</a></li>
+                    <li><a href="katalog.html" class="font-semibold text-ink">Katalog</a></li>
+                    <li><a href="blog.html" class="transition hover:text-ink">Blog</a></li>
+                    <li><a href="kontak.html" class="transition hover:text-ink">Kontak</a></li>
+                </ul>
+                <a href="kontak.html" class="hidden rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800 md:inline-block"
+                    >Kunjungi Toko</a
+                >
+                <button id="menuBtn" class="grid h-11 w-11 place-items-center rounded-full border border-silver-300 md:hidden" aria-label="Menu">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+                </button>
+            </nav>
+            <div id="mobileMenu" class="hidden border-t border-silver-200 bg-white px-4 py-4 md:hidden">
+                <ul class="flex flex-col gap-1 text-[15px] font-medium">
+                    <li><a href="index.html" class="block rounded-xl px-4 py-3 hover:bg-cream">Beranda</a></li>
+                    <li><a href="katalog.html" class="block rounded-xl bg-cream px-4 py-3">Katalog</a></li>
+                    <li><a href="blog.html" class="block rounded-xl px-4 py-3 hover:bg-cream">Blog</a></li>
+                    <li><a href="kontak.html" class="block rounded-xl px-4 py-3 hover:bg-cream">Kontak</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <!-- Header card (gaya hero beranda) -->
+            <div class="relative overflow-hidden rounded-4xl bg-ink px-7 py-10 sm:px-12 sm:py-14">
+                <div class="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-rose-900/20 blur-3xl"></div>
+                <div class="pointer-events-none absolute -bottom-12 right-24 h-40 w-40 rounded-full bg-cream/10 blur-3xl"></div>
+                <div class="relative z-10 max-w-xl">
+                    <p class="text-xs font-semibold uppercase tracking-[0.25em] text-cream/60">Katalog</p>
+                    <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Semua iPhone</h1>
+                    <p class="mt-3 text-neutral-400">
+                        Tersedia unit <span class="font-semibold text-white">Baru</span> bergaransi resmi &
+                        <span class="font-semibold text-white italic">Second</span> pilihan yang lolos inspeksi 30 titik. Klik produk untuk detail.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ══════════ LAYOUT: SIDEBAR + GRID ══════════ -->
+            <div class="mt-8 grid gap-8 lg:grid-cols-[260px_1fr]">
+                <!-- ═══ SIDEBAR FILTER ═══ -->
+                <aside>
+                    <!-- Tombol toggle filter (khusus mobile) -->
+                    <button
+                        id="filterToggle"
+                        class="mb-4 flex w-full items-center justify-between rounded-full border border-silver-200 bg-white px-5 py-3.5 text-sm font-semibold lg:hidden"
+                    >
+                        <span class="flex items-center gap-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4" /></svg>
+                            Filter
+                        </span>
+                        <svg id="filterChevron" class="h-4 w-4 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+
+                    <div id="filterPanel" class="hidden lg:sticky lg:top-24 lg:block lg:self-start">
+                        <div class="nafa-scroll rounded-3xl border border-silver-200 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto">
+                            <div class="fade-zone p-6">
+                                <!-- Heading + reset -->
+                                <div class="flex items-center justify-between">
+                                    <h2 class="font-semibold">Filter</h2>
+                                    <button id="resetBtn" class="text-xs font-semibold text-neutral-400 underline underline-offset-4 transition hover:text-ink">Reset</button>
+                                </div>
+
+                            <!-- Kondisi -->
+                            <div class="mt-6 border-t border-silver-200 pt-6">
+                                <h3 class="text-sm font-semibold">Kondisi</h3>
+                                <div class="mt-3 space-y-2.5">
+                                    <label class="flex cursor-pointer items-center gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="condCheck h-4 w-4 rounded border-silver-300 accent-ink" value="Baru" />
+                                        <span>Baru</span>
+                                    </label>
+                                    <label class="flex cursor-pointer items-center gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="condCheck h-4 w-4 rounded border-silver-300 accent-ink" value="Second" />
+                                        <span class="italic">Second</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Kategori -->
+                            <div class="mt-6 border-t border-silver-200 pt-6">
+                                <h3 class="text-sm font-semibold">Kategori</h3>
+                                <div class="mt-3.5 space-y-3">
+                                    <label class="flex cursor-pointer items-start gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="catCheck mt-0.5 h-4 w-4 rounded border-silver-300 accent-ink shrink-0" value="SE Series" />
+                                        <div class="leading-tight">
+                                            <span class="font-medium text-ink">SE Series</span>
+                                            <p class="mt-0.5 text-[11px] text-neutral-400">Layar klasik / paling terjangkau</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex cursor-pointer items-start gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="catCheck mt-0.5 h-4 w-4 rounded border-silver-300 accent-ink shrink-0" value="Standard / Base Model" />
+                                        <div class="leading-tight">
+                                            <span class="font-medium text-ink">Standard / Base Model</span>
+                                            <p class="mt-0.5 text-[11px] text-neutral-400">Ukuran pas / 2 kamera</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex cursor-pointer items-start gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="catCheck mt-0.5 h-4 w-4 rounded border-silver-300 accent-ink shrink-0" value="Plus Model" />
+                                        <div class="leading-tight">
+                                            <span class="font-medium text-ink">Plus Model</span>
+                                            <p class="mt-0.5 text-[11px] text-neutral-400">Layar besar / 2 kamera</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex cursor-pointer items-start gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="catCheck mt-0.5 h-4 w-4 rounded border-silver-300 accent-ink shrink-0" value="Pro Model" />
+                                        <div class="leading-tight">
+                                            <span class="font-medium text-ink">Pro Model</span>
+                                            <p class="mt-0.5 text-[11px] text-neutral-400">Fitur lengkap & profesional / 3 kamera</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex cursor-pointer items-start gap-3 text-sm text-neutral-600 transition hover:text-ink">
+                                        <input type="checkbox" class="catCheck mt-0.5 h-4 w-4 rounded border-silver-300 accent-ink shrink-0" value="Pro Max Model" />
+                                        <div class="leading-tight">
+                                            <span class="font-medium text-ink">Pro Max Model</span>
+                                            <p class="mt-0.5 text-[11px] text-neutral-400">Layar paling besar, baterai paling awet, & fitur lengkap</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Rentang harga cepat -->
+                            <div class="mt-6 border-t border-silver-200 pt-6">
+                                <h3 class="text-sm font-semibold">Rentang Harga</h3>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <button
+                                        data-min=""
+                                        data-max="8000000"
+                                        class="priceChip rounded-full border border-silver-200 px-3.5 py-1.5 text-xs font-medium transition hover:border-ink"
+                                    >
+                                        &lt; 8jt
+                                    </button>
+                                    <button
+                                        data-min="8000000"
+                                        data-max="15000000"
+                                        class="priceChip rounded-full border border-silver-200 px-3.5 py-1.5 text-xs font-medium transition hover:border-ink"
+                                    >
+                                        8 – 15jt
+                                    </button>
+                                    <button
+                                        data-min="15000000"
+                                        data-max=""
+                                        class="priceChip rounded-full border border-silver-200 px-3.5 py-1.5 text-xs font-medium transition hover:border-ink"
+                                    >
+                                        &gt; 15jt
+                                    </button>
+                                </div>
+                                <!-- Input manual min/max -->
+                                <div class="mt-4 flex items-center gap-2">
+                                    <input
+                                        id="minPrice"
+                                        type="text"
+                                        inputmode="numeric"
+                                        placeholder="Min"
+                                        class="w-full rounded-xl border border-silver-200 bg-silver-100 px-3 py-2.5 text-xs outline-none transition focus:border-ink focus:bg-white"
+                                    />
+                                    <span class="text-neutral-300">–</span>
+                                    <input
+                                        id="maxPrice"
+                                        type="text"
+                                        inputmode="numeric"
+                                        placeholder="Maks"
+                                        class="w-full rounded-xl border border-silver-200 bg-silver-100 px-3 py-2.5 text-xs outline-none transition focus:border-ink focus:bg-white"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Info second -->
+                            <div class="mt-6 rounded-2xl bg-cream p-4 text-xs leading-relaxed text-ink/70">
+                                <p class="font-semibold text-ink">🛡️ Unit <em>second</em> kami</p>
+                                <p class="mt-1">Semua iPhone <em>second</em> lolos inspeksi 30 titik, battery health jelas, dan bergaransi toko 14 hari tukar.</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- ═══ KONTEN KANAN ═══ -->
+                <div>
+                    <!-- Toolbar: jumlah + search + sort -->
+                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                        <p id="resultInfo" class="text-sm text-neutral-400"></p>
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+                            <label class="relative block sm:w-64">
+                                <svg
+                                    class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <circle cx="11" cy="11" r="7" />
+                                    <path d="m21 21-4.3-4.3" />
+                                </svg>
+                                <input
+                                    id="searchInput"
+                                    type="text"
+                                    placeholder="Cari iPhone..."
+                                    class="w-full rounded-full border border-silver-200 bg-silver-100 py-2.5 pl-10 pr-4 text-sm outline-none transition placeholder:text-neutral-400 focus:border-ink focus:bg-white"
+                                />
+                            </label>
+                            <select
+                                id="sortSelect"
+                                class="shrink-0 rounded-full border border-silver-200 bg-white px-4 py-2.5 text-sm font-medium outline-none transition focus:border-ink"
+                            >
+                                <option value="default">Urutkan</option>
+                                <option value="murah">Harga Terendah</option>
+                                <option value="mahal">Harga Tertinggi</option>
+                                <option value="populer">Terpopuler</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Grid: 2 kolom di HP, 3 kolom di desktop -->
+                    <div id="catalogGrid" class="mt-5 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3"></div>
+                    <!-- Load More -->
+                    <div id="loadMoreWrap" class="mt-10 hidden text-center">
+                        <button
+                            id="loadMoreBtn"
+                            class="rounded-full border border-silver-300 bg-white px-8 py-4 text-sm font-semibold transition hover:border-ink hover:bg-silver-100"
+                        >
+                            Muat Lebih Banyak
+                        </button>
+                        <p class="mt-3 text-xs text-neutral-400">Menampilkan <span id="shownCount">0</span> dari <span id="totalCount">0</span> produk</p>
+                    </div>
+                    <!-- Empty state -->
+                    <div id="emptyState" class="hidden py-24 text-center">
+                        <p class="text-4xl">🔍</p>
+                        <h3 class="mt-4 text-lg font-semibold">Produk tidak ditemukan</h3>
+                        <p class="mt-2 text-sm text-neutral-500">Coba ubah kata kunci, filter, atau rentang harga.</p>
+                        <button onclick="resetFilters()" class="mt-6 rounded-full bg-ink px-7 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800">
+                            Reset Semua Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="border-t border-silver-200 bg-silver-100">
+            <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+                <div class="grid gap-10 md:grid-cols-4">
+                    <div class="md:col-span-2">
+                        <div class="flex items-center gap-3">
+                            <svg width="30" height="34" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    fill="#0A0A0A"
+                                    d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.03 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+                                />
+                                <text x="11" y="15" text-anchor="middle" font-size="6" font-weight="800" fill="#F6F1E7" font-family="Inter, sans-serif">NF</text>
+                            </svg>
+                            <span class="font-display text-lg font-bold tracking-wide">NAFA <span class="italic">i</span>STORE</span>
+                        </div>
+                        <p class="mt-3 text-sm italic text-neutral-500">World From Device</p>
+                        <p class="mt-4 max-w-sm text-sm leading-relaxed text-neutral-500">Toko iPhone baru & <em>second</em> pilihan. Original, bergaransi, tanpa drama.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold">Navigasi</h4>
+                        <ul class="mt-4 space-y-3 text-sm text-neutral-500">
+                            <li><a href="index.html" class="hover:text-ink transition">Beranda</a></li>
+                            <li><a href="katalog.html" class="hover:text-ink transition">Katalog</a></li>
+                            <li><a href="blog.html" class="hover:text-ink transition">Blog</a></li>
+                            <li><a href="kontak.html" class="hover:text-ink transition">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold">Kontak</h4>
+                        <ul class="mt-4 space-y-3 text-sm text-neutral-500">
+                            <li>WA: 0812-3456-7890</li>
+                            <li>halo@nafaistore.id</li>
+                            <li>Jl. Teknologi No. 88, Jakarta Selatan</li>
+                            <li>Setiap hari, 09.00–21.00</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-silver-200 pt-8 text-xs text-neutral-400">
+                    <p>© 2025 NAFA iSTORE. Semua hak dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+
+        <div
+            id="toast"
+            class="pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 translate-y-20 rounded-full bg-cream px-6 py-3.5 text-sm font-medium text-ink opacity-0 shadow-2xl transition-all duration-300"
+        >
+            <span id="toastMsg"></span>
+        </div>
+
+  <script src="../assets/js/data-produk.js"></script>
+  <script src="../assets/js/components/navbar.js"></script>
+  <script src="../assets/js/components/toast.js"></script>
+  <script src="../assets/js/pages/katalog.js"></script>
+</body>
+</html>

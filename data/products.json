@@ -1,27 +1,326 @@
 [
   {
+    "id": "iphone-18-pro-max",
+    "name": "iPhone 18 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "256GB · Deep Crimson Titanium",
+    "price": 25999000,
+    "badge": "Terbaru",
+    "rating": 5,
+    "sold": 88,
+    "img": "assets/img/productNew/iphone-18-pro-max-deep-crimson.webp",
+    "colors": [
+      "Deep Crimson",
+      "Ice Blue",
+      "Platinum",
+      "Obsidian Black"
+    ],
+    "colorImages": {
+      "Deep Crimson": "assets/img/productNew/iphone-18-pro-max-deep-crimson.webp",
+      "Ice Blue": "assets/img/productNew/iphone-18-pro-max-ice-blue-titanium.webp",
+      "Platinum": "assets/img/productNew/iphone-18-pro-max-platinum-titanium.webp",
+      "Obsidian Black": "assets/img/productNew/iphone-18-pro-max-obsidian-black.webp"
+    },
+    "storages": [
+      {
+        "label": "256GB",
+        "price": 25999000
+      },
+      {
+        "label": "512GB",
+        "price": 28999000
+      },
+      {
+        "label": "1TB",
+        "price": 32999000
+      }
+    ],
+    "desc": "Flagship masa depan dengan bodi Titanium generasi baru, chip Apple Silicon A20 Pro, sistem quad-camera periskop dan layar ProMotion 144Hz.",
+    "specs": {
+      "Layar": "6.9\" Super Retina XDR OLED 144Hz",
+      "Chip": "A20 Pro Bionic",
+      "Kamera": "48MP Quad-Pixel + 48MP Ultra Wide + 48MP Periscope Telephoto 10x",
+      "Baterai": "Hingga 36 jam pemutaran video",
+      "Ketahanan": "Titanium Armor, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-18-pro",
+    "name": "iPhone 18 Pro",
+    "cat": "Pro Model",
+    "condition": "Baru",
+    "spec": "128GB · Deep Crimson Titanium",
+    "price": 22499000,
+    "badge": "Terbaru",
+    "rating": 5,
+    "sold": 95,
+    "img": "assets/img/productNew/iphone-18-pro-deep-crimson.webp",
+    "colors": [
+      "Deep Crimson",
+      "Ice Blue",
+      "Platinum",
+      "Obsidian Black"
+    ],
+    "colorImages": {
+      "Deep Crimson": "assets/img/productNew/iphone-18-pro-deep-crimson.webp",
+      "Ice Blue": "assets/img/productNew/iphone-18-pro-ice-blue-titanium.webp",
+      "Platinum": "assets/img/productNew/iphone-18-pro-platinum-titanium.webp",
+      "Obsidian Black": "assets/img/productNew/iphone-18-pro-obsidian-black.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 22499000
+      },
+      {
+        "label": "256GB",
+        "price": 24499000
+      },
+      {
+        "label": "512GB",
+        "price": 27999000
+      }
+    ],
+    "desc": "Kekuatan Pro dalam genggaman kompak. Dilengkapi chip A20 Pro bertenaga AI Neural generasi terdepan dan kamera pro 48MP triple system.",
+    "specs": {
+      "Layar": "6.3\" Super Retina XDR OLED 144Hz",
+      "Chip": "A20 Pro Bionic",
+      "Kamera": "48MP Main + 48MP Ultra Wide + 48MP Telephoto 5x",
+      "Baterai": "Hingga 30 jam pemutaran video",
+      "Ketahanan": "Titanium Armor, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-17-pro-max",
+    "name": "iPhone 17 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "256GB · Cosmic Amber",
+    "price": 23999000,
+    "badge": "Populer",
+    "rating": 4.9,
+    "sold": 210,
+    "img": "assets/img/productNew/iphone-17-pro-max-cosmic-amber.webp",
+    "colors": [
+      "Cosmic Amber",
+      "Deep Blue",
+      "Silver"
+    ],
+    "colorImages": {
+      "Cosmic Amber": "assets/img/productNew/iphone-17-pro-max-cosmic-amber.webp",
+      "Deep Blue": "assets/img/productNew/iphone-17-pro-max-deep-blue-titanium.webp",
+      "Silver": "assets/img/productNew/iphone-17-pro-max-silver-titanium.webp"
+    },
+    "storages": [
+      {
+        "label": "256GB",
+        "price": 23999000
+      },
+      {
+        "label": "512GB",
+        "price": 26999000
+      },
+      {
+        "label": "1TB",
+        "price": 30999000
+      }
+    ],
+    "desc": "Layar 6.9 inci memukau dengan bezel tertipis di kelasnya, chip A19 Pro, dan tombol Camera Control sentuhan presisi.",
+    "specs": {
+      "Layar": "6.9\" Super Retina XDR, ProMotion 120Hz",
+      "Chip": "A19 Pro",
+      "Kamera": "48MP Fusion + 48MP Ultra Wide + 48MP Telephoto",
+      "Baterai": "Hingga 34 jam pemutaran video",
+      "Ketahanan": "Titanium Aerospace, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-17-pro",
+    "name": "iPhone 17 Pro",
+    "cat": "Pro Model",
+    "condition": "Baru",
+    "spec": "128GB · Cosmic Amber",
+    "price": 20499000,
+    "badge": null,
+    "rating": 4.9,
+    "sold": 180,
+    "img": "assets/img/productNew/iphone-17-pro-cosmic-amber.webp",
+    "colors": [
+      "Cosmic Amber",
+      "Deep Blue",
+      "Silver"
+    ],
+    "colorImages": {
+      "Cosmic Amber": "assets/img/productNew/iphone-17-pro-cosmic-amber.webp",
+      "Deep Blue": "assets/img/productNew/iphone-17-pro-deep-blue-titanium.webp",
+      "Silver": "assets/img/productNew/iphone-17-pro-silver-titanium.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 20499000
+      },
+      {
+        "label": "256GB",
+        "price": 22499000
+      },
+      {
+        "label": "512GB",
+        "price": 25499000
+      }
+    ],
+    "desc": "Desain ringkas 6.3 inci dengan kekuatan chip A19 Pro. Ketahanan bodi Titanium dengan pendinginan vapor chamber mutakhir.",
+    "specs": {
+      "Layar": "6.3\" Super Retina XDR, ProMotion 120Hz",
+      "Chip": "A19 Pro",
+      "Kamera": "48MP Fusion + 48MP Ultra Wide + 48MP Telephoto",
+      "Baterai": "Hingga 28 jam pemutaran video",
+      "Ketahanan": "Titanium Aerospace, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-17-air",
+    "name": "iPhone 17 Air",
+    "cat": "Plus Model",
+    "condition": "Baru",
+    "spec": "128GB · Cloud Blue",
+    "price": 16999000,
+    "badge": "Ultra Slim",
+    "rating": 4.8,
+    "sold": 145,
+    "img": "assets/img/productNew/iphone-17-air-cloud-blue.webp",
+    "colors": [
+      "Cloud Blue",
+      "Starlight",
+      "Space Black"
+    ],
+    "colorImages": {
+      "Cloud Blue": "assets/img/productNew/iphone-17-air-cloud-blue.webp",
+      "Starlight": "assets/img/productNew/iphone-17-air-starlight.webp",
+      "Space Black": "assets/img/productNew/iphone-17-air-space-black.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 16999000
+      },
+      {
+        "label": "256GB",
+        "price": 18499000
+      },
+      {
+        "label": "512GB",
+        "price": 20999000
+      }
+    ],
+    "desc": "iPhone tertipis yang pernah ada. Bodi 5.6mm yang sangat ringan dengan layar besar 6.6 inci dan chip A19 yang super efisien.",
+    "specs": {
+      "Layar": "6.6\" Super Retina XDR ProMotion",
+      "Chip": "A19 Bionic",
+      "Kamera": "48MP Fusion Camera",
+      "Baterai": "Hingga 25 jam pemutaran video",
+      "Ketahanan": "Aluminum Ultra-Light, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-17",
+    "name": "iPhone 17",
+    "cat": "Standard / Base Model",
+    "condition": "Baru",
+    "spec": "128GB · Black",
+    "price": 15499000,
+    "badge": null,
+    "rating": 4.8,
+    "sold": 290,
+    "img": "assets/img/productNew/iphone-17-black.webp",
+    "colors": [
+      "Black",
+      "White",
+      "Lavender",
+      "Mist Blue",
+      "Sage Green"
+    ],
+    "colorImages": {
+      "Black": "assets/img/productNew/iphone-17-black.webp",
+      "White": "assets/img/productNew/iphone-17-white.webp",
+      "Lavender": "assets/img/productNew/iphone-17-lavender.webp",
+      "Mist Blue": "assets/img/productNew/iphone-17-mist-blue.webp",
+      "Sage Green": "assets/img/productNew/iphone-17-sage-green.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 15499000
+      },
+      {
+        "label": "256GB",
+        "price": 16999000
+      },
+      {
+        "label": "512GB",
+        "price": 19499000
+      }
+    ],
+    "desc": "iPhone 17 standar hadir dengan refresh rate 120Hz ProMotion pertama di seri reguler, kamera ganda 48MP dan chip A19.",
+    "specs": {
+      "Layar": "6.1\" Super Retina XDR ProMotion 120Hz",
+      "Chip": "A19 Bionic",
+      "Kamera": "48MP Dual Fusion + 48MP Ultra Wide",
+      "Baterai": "Hingga 26 jam pemutaran video",
+      "Ketahanan": "Ceramic Shield gen 3, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
     "id": "iphone-16-pro-max",
     "name": "iPhone 16 Pro Max",
     "cat": "Pro Max Model",
     "condition": "Baru",
-    "spec": "256GB · Titanium Natural",
+    "spec": "256GB · Black Titanium",
     "price": 21999000,
-    "badge": "Terbaru",
+    "badge": "Best Seller",
     "rating": 4.9,
-    "sold": 320,
-    "img": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=1000&q=80&auto=format&fit=crop"
+    "sold": 430,
+    "img": "assets/img/productNew/iphone-16-pro-max-black-titanium.webp",
+    "colors": [
+      "Black Titanium",
+      "White Titanium",
+      "Desert Titanium",
+      "Natural Titanium"
     ],
-    "colors": ["Natural Titanium", "Desert Titanium", "White Titanium", "Black Titanium"],
+    "colorImages": {
+      "Black Titanium": "assets/img/productNew/iphone-16-pro-max-black-titanium.webp",
+      "White Titanium": "assets/img/productNew/iphone-16-pro-max-white-titanium.webp",
+      "Desert Titanium": "assets/img/productNew/iphone-16-pro-max-desert-titanium.webp",
+      "Natural Titanium": "assets/img/productNew/iphone-16-pro-max-natural-titanium.webp"
+    },
     "storages": [
-      { "label": "256GB", "price": 21999000 },
-      { "label": "512GB", "price": 24999000 },
-      { "label": "1TB", "price": 27999000 }
+      {
+        "label": "256GB",
+        "price": 21999000
+      },
+      {
+        "label": "512GB",
+        "price": 24999000
+      },
+      {
+        "label": "1TB",
+        "price": 27999000
+      }
     ],
-    "desc": "iPhone 16 Pro Max adalah iPhone paling canggih yang pernah dibuat. Body Titanium aerospace-grade dengan layar Super Retina XDR terbesar, chip A18 Pro yang sangat cepat, dan sistem kamera Pro 48MP dengan tombol Camera Control baru.",
+    "desc": "Layar 6.9 inci terbesar, tombol Camera Control baru, chip A18 Pro, dan baterai paling awet di seluruh lini iPhone.",
     "specs": {
       "Layar": "6.9\" Super Retina XDR, ProMotion 120Hz",
       "Chip": "A18 Pro",
@@ -30,30 +329,46 @@
       "Ketahanan": "Ceramic Shield, IP68",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-16-pro-max"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-16-pro",
     "name": "iPhone 16 Pro",
     "cat": "Pro Model",
     "condition": "Baru",
-    "spec": "128GB · Titanium Hitam",
+    "spec": "128GB · Black Titanium",
     "price": 18499000,
     "badge": null,
     "rating": 4.9,
-    "sold": 410,
-    "img": "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1000&q=80&auto=format&fit=crop"
+    "sold": 390,
+    "img": "assets/img/productNew/iphone-16-pro-black-titanium.webp",
+    "colors": [
+      "Black Titanium",
+      "White Titanium",
+      "Desert Titanium",
+      "Natural Titanium"
     ],
-    "colors": ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
+    "colorImages": {
+      "Black Titanium": "assets/img/productNew/iphone-16-pro-black-titanium.webp",
+      "White Titanium": "assets/img/productNew/iphone-16-pro-white-titanium.webp",
+      "Desert Titanium": "assets/img/productNew/iphone-16-pro-desert-titanium.webp",
+      "Natural Titanium": "assets/img/productNew/iphone-16-pro-natural-titanium.webp"
+    },
     "storages": [
-      { "label": "128GB", "price": 18499000 },
-      { "label": "256GB", "price": 19999000 },
-      { "label": "512GB", "price": 22999000 }
+      {
+        "label": "128GB",
+        "price": 18499000
+      },
+      {
+        "label": "256GB",
+        "price": 19999000
+      },
+      {
+        "label": "512GB",
+        "price": 22999000
+      }
     ],
-    "desc": "Ukuran pas, performa maksimal. iPhone 16 Pro membawa chip A18 Pro, kamera 48MP, dan layar ProMotion dalam bodi 6.3 inci yang nyaman digenggam satu tangan.",
+    "desc": "Ukuran pas 6.3 inci, performa maksimal chip A18 Pro, tombol Camera Control, dan kemampuan video 4K 120fps Dolby Vision.",
     "specs": {
       "Layar": "6.3\" Super Retina XDR, ProMotion 120Hz",
       "Chip": "A18 Pro",
@@ -62,7 +377,7 @@
       "Ketahanan": "Ceramic Shield, IP68",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-16-pro"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-16",
@@ -71,21 +386,39 @@
     "condition": "Baru",
     "spec": "128GB · Ultramarine",
     "price": 13999000,
-    "badge": "Baru",
+    "badge": "Populer",
     "rating": 4.8,
     "sold": 520,
-    "img": "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1000&q=80&auto=format&fit=crop"
+    "img": "assets/img/productNew/iphone-16-ultramarine.webp",
+    "colors": [
+      "Ultramarine",
+      "Teal",
+      "Pink",
+      "White",
+      "Black"
     ],
-    "colors": ["Ultramarine", "Teal", "Pink", "White", "Black"],
+    "colorImages": {
+      "Ultramarine": "assets/img/productNew/iphone-16-ultramarine.webp",
+      "Teal": "assets/img/productNew/iphone-16-teal.webp",
+      "Pink": "assets/img/productNew/iphone-16-pink.webp",
+      "White": "assets/img/productNew/iphone-16-white.webp",
+      "Black": "assets/img/productNew/iphone-16-black.webp"
+    },
     "storages": [
-      { "label": "128GB", "price": 13999000 },
-      { "label": "256GB", "price": 15499000 },
-      { "label": "512GB", "price": 17999000 }
+      {
+        "label": "128GB",
+        "price": 13999000
+      },
+      {
+        "label": "256GB",
+        "price": 15499000
+      },
+      {
+        "label": "512GB",
+        "price": 17999000
+      }
     ],
-    "desc": "iPhone 16 dengan chip A18, tombol Camera Control, dan warna-warna vibrant. Pilihan paling worth it untuk kebutuhan sehari-hari yang years ahead.",
+    "desc": "Kamera ganda vertikal dengan fitur Spatial Capture, tombol Action & Camera Control baru, serta chip A18 super kencang.",
     "specs": {
       "Layar": "6.1\" Super Retina XDR",
       "Chip": "A18",
@@ -94,29 +427,184 @@
       "Ketahanan": "Ceramic Shield, IP68",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-16"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-16e",
+    "name": "iPhone 16e",
+    "cat": "SE Series",
+    "condition": "Baru",
+    "spec": "128GB · Starlight",
+    "price": 9999000,
+    "badge": "Hemat",
+    "rating": 4.7,
+    "sold": 210,
+    "img": "assets/img/productNew/iphone-16e-white.webp",
+    "colors": [
+      "Starlight",
+      "Midnight"
+    ],
+    "colorImages": {
+      "Starlight": "assets/img/productNew/iphone-16e-white.webp",
+      "Midnight": "assets/img/productNew/iphone-16e-black.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 9999000
+      },
+      {
+        "label": "256GB",
+        "price": 11499000
+      }
+    ],
+    "desc": "iPhone modern berlayar OLED bezel-less paling terjangkau dengan chip A18, modem 5G Apple C1, dan kamera tunggal 48MP.",
+    "specs": {
+      "Layar": "6.1\" OLED Super Retina",
+      "Chip": "A18 Bionic",
+      "Kamera": "48MP Fusion Camera",
+      "Baterai": "Hingga 20 jam pemutaran video",
+      "Ketahanan": "IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-15-pro-max",
+    "name": "iPhone 15 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "256GB · Natural Titanium",
+    "price": 19499000,
+    "badge": null,
+    "rating": 4.9,
+    "sold": 480,
+    "img": "assets/img/productNew/iphone-15-pro-max-natural-titanium.webp",
+    "colors": [
+      "Natural Titanium",
+      "Blue Titanium",
+      "White Titanium",
+      "Black Titanium"
+    ],
+    "colorImages": {
+      "Natural Titanium": "assets/img/productNew/iphone-15-pro-max-natural-titanium.webp",
+      "Blue Titanium": "assets/img/productNew/iphone-15-pro-max-blue-titanium.webp",
+      "White Titanium": "assets/img/productNew/iphone-15-pro-max-white-titanium.webp",
+      "Black Titanium": "assets/img/productNew/iphone-15-pro-max-black-titanium.webp"
+    },
+    "storages": [
+      {
+        "label": "256GB",
+        "price": 19499000
+      },
+      {
+        "label": "512GB",
+        "price": 22499000
+      },
+      {
+        "label": "1TB",
+        "price": 25499000
+      }
+    ],
+    "desc": "Pelopor bodi Titanium dengan lensa telephoto 5x tetraprism, chip A17 Pro 3nm untuk gaming konsol AAA, dan port USB-C 10Gbps.",
+    "specs": {
+      "Layar": "6.7\" Super Retina XDR, ProMotion 120Hz",
+      "Chip": "A17 Pro",
+      "Kamera": "48MP Main + 12MP Ultra Wide + 12MP 5x Tele",
+      "Baterai": "Hingga 29 jam pemutaran video",
+      "Ketahanan": "Titanium, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-15-pro",
+    "name": "iPhone 15 Pro",
+    "cat": "Pro Model",
+    "condition": "Baru",
+    "spec": "128GB · Natural Titanium",
+    "price": 16499000,
+    "badge": null,
+    "rating": 4.8,
+    "sold": 370,
+    "img": "assets/img/productNew/iphone-15-pro-natural-titanium.webp",
+    "colors": [
+      "Natural Titanium",
+      "Blue Titanium",
+      "White Titanium",
+      "Black Titanium"
+    ],
+    "colorImages": {
+      "Natural Titanium": "assets/img/productNew/iphone-15-pro-natural-titanium.webp",
+      "Blue Titanium": "assets/img/productNew/iphone-15-pro-blue-titanium.webp",
+      "White Titanium": "assets/img/productNew/iphone-15-pro-white-titanium.webp",
+      "Black Titanium": "assets/img/productNew/iphone-15-pro-black-titanium.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 16499000
+      },
+      {
+        "label": "256GB",
+        "price": 18499000
+      },
+      {
+        "label": "512GB",
+        "price": 21499000
+      }
+    ],
+    "desc": "Bodi Titanium ringan dengan tombol Action serbaguna, chip A17 Pro, dan kamera utama 48MP dengan beragam focal length pro.",
+    "specs": {
+      "Layar": "6.1\" Super Retina XDR, ProMotion 120Hz",
+      "Chip": "A17 Pro",
+      "Kamera": "48MP Main + 12MP Ultra Wide + 12MP 3x Tele",
+      "Baterai": "Hingga 23 jam pemutaran video",
+      "Ketahanan": "Titanium, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-15-plus",
     "name": "iPhone 15 Plus",
     "cat": "Plus Model",
     "condition": "Baru",
-    "spec": "128GB · Black",
+    "spec": "128GB · Pink",
     "price": 13499000,
     "badge": null,
     "rating": 4.8,
-    "sold": 340,
-    "img": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=1000&q=80&auto=format&fit=crop"
+    "sold": 290,
+    "img": "assets/img/productNew/iphone-15-plus-pink.webp",
+    "colors": [
+      "Pink",
+      "Black",
+      "Blue",
+      "Green",
+      "Yellow"
     ],
-    "colors": ["Black", "Blue", "Green", "Yellow", "Pink"],
+    "colorImages": {
+      "Pink": "assets/img/productNew/iphone-15-plus-pink.webp",
+      "Black": "assets/img/productNew/iphone-15-black.webp",
+      "Blue": "assets/img/productNew/iphone-15-blue.webp",
+      "Green": "assets/img/productNew/iphone-15-green.webp",
+      "Yellow": "assets/img/productNew/iphone-15-yellow.webp"
+    },
     "storages": [
-      { "label": "128GB", "price": 13499000 },
-      { "label": "256GB", "price": 14999000 }
+      {
+        "label": "128GB",
+        "price": 13499000
+      },
+      {
+        "label": "256GB",
+        "price": 14999000
+      },
+      {
+        "label": "512GB",
+        "price": 17499000
+      }
     ],
-    "desc": "Layar 6.7 inci yang besar dengan baterai luar biasa awet dan Dynamic Island. Pilihan pas untuk streaming dan gaming seharian.",
+    "desc": "Layar 6.7 inci yang besar dengan baterai luar biasa awet, Dynamic Island, dan kamera utama 48MP dengan 2x optical quality zoom.",
     "specs": {
       "Layar": "6.7\" Super Retina XDR, Dynamic Island",
       "Chip": "A16 Bionic",
@@ -125,29 +613,48 @@
       "Ketahanan": "Ceramic Shield, IP68",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-15-plus"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-15",
     "name": "iPhone 15",
     "cat": "Standard / Base Model",
     "condition": "Baru",
-    "spec": "128GB · Pink",
+    "spec": "128GB · Black",
     "price": 11499000,
     "badge": null,
     "rating": 4.8,
     "sold": 680,
-    "img": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=1000&q=80&auto=format&fit=crop"
+    "img": "assets/img/productNew/iphone-15-black.webp",
+    "colors": [
+      "Black",
+      "Blue",
+      "Green",
+      "Yellow",
+      "Pink"
     ],
-    "colors": ["Pink", "Yellow", "Blue", "Green", "Black"],
+    "colorImages": {
+      "Black": "assets/img/productNew/iphone-15-black.webp",
+      "Blue": "assets/img/productNew/iphone-15-blue.webp",
+      "Green": "assets/img/productNew/iphone-15-green.webp",
+      "Yellow": "assets/img/productNew/iphone-15-yellow.webp",
+      "Pink": "assets/img/productNew/iphone-15-pink.webp"
+    },
     "storages": [
-      { "label": "128GB", "price": 11499000 },
-      { "label": "256GB", "price": 12999000 }
+      {
+        "label": "128GB",
+        "price": 11499000
+      },
+      {
+        "label": "256GB",
+        "price": 12999000
+      },
+      {
+        "label": "512GB",
+        "price": 15499000
+      }
     ],
-    "desc": "iPhone 15 dengan Dynamic Island, kamera 48MP, dan USB-C. Sweet spot antara fitur terbaru dan harga yang masuk akal.",
+    "desc": "Hadir dengan Dynamic Island, kamera 48MP beresolusi super tinggi, port USB-C universal, dan kaca belakang frosted yang elegan.",
     "specs": {
       "Layar": "6.1\" Super Retina XDR, Dynamic Island",
       "Chip": "A16 Bionic",
@@ -156,7 +663,55 @@
       "Ketahanan": "Ceramic Shield, IP68",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-15"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-14-pro-max",
+    "name": "iPhone 14 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "128GB · Deep Purple",
+    "price": 16999000,
+    "badge": null,
+    "rating": 4.8,
+    "sold": 350,
+    "img": "assets/img/productNew/iphone-14-pro-max-deep-purple.webp",
+    "colors": [
+      "Deep Purple",
+      "Space Black",
+      "Gold",
+      "Silver"
+    ],
+    "colorImages": {
+      "Deep Purple": "assets/img/productNew/iphone-14-pro-max-deep-purple.webp",
+      "Space Black": "assets/img/productNew/iphone-14-pro-max-space-black.webp",
+      "Gold": "assets/img/productNew/iphone-14-pro-max-gold.webp",
+      "Silver": "assets/img/productNew/iphone-14-pro-max-silver.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 16999000
+      },
+      {
+        "label": "256GB",
+        "price": 18999000
+      },
+      {
+        "label": "512GB",
+        "price": 21999000
+      }
+    ],
+    "desc": "Generasi pertama yang memperkenalkan Dynamic Island dan Always-On Display. Kamera 48MP Pro dan bodi baja tahan karat berkilau.",
+    "specs": {
+      "Layar": "6.7\" Super Retina XDR, Dynamic Island 120Hz",
+      "Chip": "A16 Bionic",
+      "Kamera": "48MP Main + 12MP Ultra Wide + 12MP 3x Tele",
+      "Baterai": "Hingga 29 jam pemutaran video",
+      "Ketahanan": "Stainless Steel, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-14",
@@ -164,30 +719,325 @@
     "cat": "Standard / Base Model",
     "condition": "Baru",
     "spec": "128GB · Midnight",
-    "price": 9499000,
-    "badge": "Hemat",
-    "rating": 4.7,
-    "sold": 750,
-    "img": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1000&q=80&auto=format&fit=crop"
+    "price": 9999000,
+    "badge": null,
+    "rating": 4.8,
+    "sold": 720,
+    "img": "assets/img/productNew/iphone-14-midnight.webp",
+    "colors": [
+      "Midnight",
+      "Starlight",
+      "Blue",
+      "Purple",
+      "Yellow",
+      "(PRODUCT)RED"
     ],
-    "colors": ["Midnight", "Starlight", "Blue", "Purple", "Red"],
+    "colorImages": {
+      "Midnight": "assets/img/productNew/iphone-14-midnight.webp",
+      "Starlight": "assets/img/productNew/iphone-14-starlight.webp",
+      "Blue": "assets/img/productNew/iphone-14-blue.webp",
+      "Purple": "assets/img/productNew/iphone-14-purple.webp",
+      "Yellow": "assets/img/productNew/iphone-14-yellow.webp",
+      "(PRODUCT)RED": "assets/img/productNew/iphone-14-red.webp"
+    },
     "storages": [
-      { "label": "128GB", "price": 9499000 },
-      { "label": "256GB", "price": 10499000 }
+      {
+        "label": "128GB",
+        "price": 9999000
+      },
+      {
+        "label": "256GB",
+        "price": 11499000
+      }
     ],
-    "desc": "Pilihan hemat tanpa kompromi. iPhone 14 masih sangat bertenaga dengan chip A15 dan kamera malam yang juara.",
+    "desc": "Pilihan terpercaya dengan chip A15 Bionic 5-core GPU, stabilisasi video Action Mode, dan deteksi benturan darurat.",
     "specs": {
-      "Layar": "6.1\" Super Retina XDR",
-      "Chip": "A15 Bionic",
-      "Kamera": "12MP Main + 12MP Ultra Wide",
+      "Layar": "6.1\" Super Retina XDR OLED",
+      "Chip": "A15 Bionic (5-core GPU)",
+      "Kamera": "12MP Main + 12MP Ultra Wide Photonic Engine",
       "Baterai": "Hingga 20 jam pemutaran video",
       "Ketahanan": "Ceramic Shield, IP68",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-14"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-13-pro-max",
+    "name": "iPhone 13 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "128GB · Sierra Blue",
+    "price": 14499000,
+    "badge": null,
+    "rating": 4.8,
+    "sold": 310,
+    "img": "assets/img/productNew/iphone-13-pro-max-sierra-blue.webp",
+    "colors": [
+      "Sierra Blue",
+      "Graphite",
+      "Gold",
+      "Silver"
+    ],
+    "colorImages": {
+      "Sierra Blue": "assets/img/productNew/iphone-13-pro-max-sierra-blue.webp",
+      "Graphite": "assets/img/productNew/iphone-13-pro-max-graphite.webp",
+      "Gold": "assets/img/productNew/iphone-13-pro-max-gold.webp",
+      "Silver": "assets/img/productNew/iphone-13-pro-max-silver.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 14499000
+      },
+      {
+        "label": "256GB",
+        "price": 15999000
+      },
+      {
+        "label": "512GB",
+        "price": 17999000
+      }
+    ],
+    "desc": "Layar 120Hz ProMotion pertama dengan baterai super tahan lama, mode sinematik Dolby Vision, dan kamera macro photography.",
+    "specs": {
+      "Layar": "6.7\" Super Retina XDR ProMotion 120Hz",
+      "Chip": "A15 Bionic (5-core GPU)",
+      "Kamera": "12MP Main + 12MP Ultra Wide + 12MP 3x Tele",
+      "Baterai": "Hingga 28 jam pemutaran video",
+      "Ketahanan": "Stainless Steel, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-13",
+    "name": "iPhone 13",
+    "cat": "Standard / Base Model",
+    "condition": "Baru",
+    "spec": "128GB · Midnight",
+    "price": 8499000,
+    "badge": "Best Value",
+    "rating": 4.9,
+    "sold": 1100,
+    "img": "assets/img/productNew/iphone-13-midnight.webp",
+    "colors": [
+      "Midnight",
+      "Starlight",
+      "Blue",
+      "Pink",
+      "Green",
+      "(PRODUCT)RED"
+    ],
+    "colorImages": {
+      "Midnight": "assets/img/productNew/iphone-13-midnight.webp",
+      "Starlight": "assets/img/productNew/iphone-13-starlight.webp",
+      "Blue": "assets/img/productNew/iphone-13-blue.webp",
+      "Pink": "assets/img/productNew/iphone-13-pink.webp",
+      "Green": "assets/img/productNew/iphone-13-green.webp",
+      "(PRODUCT)RED": "assets/img/productNew/iphone-13-red.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 8499000
+      },
+      {
+        "label": "256GB",
+        "price": 9999000
+      }
+    ],
+    "desc": "iPhone paling value-for-money. Kamera sensor-shift OIS diagonal, baterai jauh lebih tahan lama, dan notch layar 20% lebih kecil.",
+    "specs": {
+      "Layar": "6.1\" Super Retina XDR OLED",
+      "Chip": "A15 Bionic",
+      "Kamera": "12MP Main (Sensor-shift OIS) + 12MP Ultra Wide",
+      "Baterai": "Hingga 19 jam pemutaran video",
+      "Ketahanan": "Ceramic Shield, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-12-pro-max",
+    "name": "iPhone 12 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "128GB · Pacific Blue",
+    "price": 12499000,
+    "badge": null,
+    "rating": 4.7,
+    "sold": 430,
+    "img": "assets/img/productNew/iphone-12-pro-max-pacific-blue.webp",
+    "colors": [
+      "Pacific Blue",
+      "Graphite",
+      "Silver",
+      "Gold"
+    ],
+    "colorImages": {
+      "Pacific Blue": "assets/img/productNew/iphone-12-pro-max-pacific-blue.webp",
+      "Graphite": "assets/img/productNew/iphone-12-pro-max-graphite.webp",
+      "Silver": "assets/img/productNew/iphone-12-pro-max-silver.webp",
+      "Gold": "assets/img/productNew/iphone-12-pro-max-gold.webp"
+    },
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 12499000
+      },
+      {
+        "label": "256GB",
+        "price": 13999000
+      }
+    ],
+    "desc": "iPhone flat-edge pertama berlayar 6.7 inci dengan konektivitas 5G, pemindai LiDAR untuk augmented reality, dan format Apple ProRAW.",
+    "specs": {
+      "Layar": "6.7\" Super Retina XDR OLED",
+      "Chip": "A14 Bionic",
+      "Kamera": "12MP Triple System + LiDAR Scanner",
+      "Baterai": "Hingga 20 jam pemutaran video",
+      "Ketahanan": "Ceramic Shield, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-12",
+    "name": "iPhone 12",
+    "cat": "Standard / Base Model",
+    "condition": "Baru",
+    "spec": "64GB · Black",
+    "price": 6999000,
+    "badge": null,
+    "rating": 4.7,
+    "sold": 840,
+    "img": "assets/img/productNew/iphone-12-black.webp",
+    "colors": [
+      "Black",
+      "White",
+      "Blue",
+      "Green",
+      "Purple",
+      "(PRODUCT)RED"
+    ],
+    "colorImages": {
+      "Black": "assets/img/productNew/iphone-12-black.webp",
+      "White": "assets/img/productNew/iphone-12-white.webp",
+      "Blue": "assets/img/productNew/iphone-12-blue.webp",
+      "Green": "assets/img/productNew/iphone-12-green.webp",
+      "Purple": "assets/img/productNew/iphone-12-purple.webp",
+      "(PRODUCT)RED": "assets/img/productNew/iphone-12-red.webp"
+    },
+    "storages": [
+      {
+        "label": "64GB",
+        "price": 6999000
+      },
+      {
+        "label": "128GB",
+        "price": 7999000
+      }
+    ],
+    "desc": "Layar Super Retina XDR OLED tajam, perlindungan Ceramic Shield 4x lebih tahan jatuh, MagSafe wireless charging, dan 5G kencang.",
+    "specs": {
+      "Layar": "6.1\" Super Retina XDR OLED",
+      "Chip": "A14 Bionic",
+      "Kamera": "12MP Dual Ultra Wide & Wide",
+      "Baterai": "Hingga 17 jam pemutaran video",
+      "Ketahanan": "Ceramic Shield, IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-11-pro-max",
+    "name": "iPhone 11 Pro Max",
+    "cat": "Pro Max Model",
+    "condition": "Baru",
+    "spec": "64GB · Midnight Green",
+    "price": 9499000,
+    "badge": null,
+    "rating": 4.7,
+    "sold": 520,
+    "img": "assets/img/productNew/iphone-11-pro-midnight-green.webp",
+    "colors": [
+      "Midnight Green",
+      "Space Grey",
+      "Silver",
+      "Gold"
+    ],
+    "colorImages": {
+      "Midnight Green": "assets/img/productNew/iphone-11-pro-midnight-green.webp",
+      "Space Grey": "assets/img/productNew/iphone-11-pro-max-space-grey.webp",
+      "Silver": "assets/img/productNew/iphone-11-pro-max-silver.webp",
+      "Gold": "assets/img/productNew/iphone-11-pro-max-gold.webp"
+    },
+    "storages": [
+      {
+        "label": "64GB",
+        "price": 9499000
+      },
+      {
+        "label": "256GB",
+        "price": 10999000
+      }
+    ],
+    "desc": "Legenda tiga kamera iPhone pertama. Kaca buram bertekstur premium dengan Midnight Green ikonik dan layar Super Retina XDR 6.5 inci.",
+    "specs": {
+      "Layar": "6.5\" Super Retina XDR OLED",
+      "Chip": "A13 Bionic",
+      "Kamera": "12MP Triple Camera (Ultra Wide, Wide, Telephoto)",
+      "Baterai": "Hingga 20 jam pemutaran video",
+      "Ketahanan": "IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-11",
+    "name": "iPhone 11",
+    "cat": "Standard / Base Model",
+    "condition": "Baru",
+    "spec": "64GB · Black",
+    "price": 5499000,
+    "badge": "Hemat",
+    "rating": 4.8,
+    "sold": 1420,
+    "img": "assets/img/productNew/iphone-11-black.webp",
+    "colors": [
+      "Black",
+      "White",
+      "Green",
+      "Purple",
+      "(PRODUCT)RED"
+    ],
+    "colorImages": {
+      "Black": "assets/img/productNew/iphone-11-black.webp",
+      "White": "assets/img/productNew/iphone-11-white.webp",
+      "Green": "assets/img/productNew/iphone-11-teal.webp",
+      "Purple": "assets/img/productNew/iphone-11-purple.webp",
+      "(PRODUCT)RED": "assets/img/productNew/iphone-11-red.webp"
+    },
+    "storages": [
+      {
+        "label": "64GB",
+        "price": 5499000
+      },
+      {
+        "label": "128GB",
+        "price": 6299000
+      }
+    ],
+    "desc": "iPhone terpopuler sepanjang masa. Dual kamera dengan Night Mode spektakuler, chip A13 Bionic, dan baterai awet seharian.",
+    "specs": {
+      "Layar": "6.1\" Liquid Retina HD",
+      "Chip": "A13 Bionic",
+      "Kamera": "12MP Dual Ultra Wide & Wide",
+      "Baterai": "Hingga 17 jam pemutaran video",
+      "Ketahanan": "IP68",
+      "Garansi": "Resmi 1 tahun"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-se-gen-3",
@@ -196,141 +1046,235 @@
     "condition": "Baru",
     "spec": "64GB · Midnight",
     "price": 6499000,
-    "badge": "Paling Hemat",
+    "badge": "Klasik",
     "rating": 4.7,
-    "sold": 290,
-    "img": "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1000&q=80&auto=format&fit=crop"
+    "sold": 260,
+    "img": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80&auto=format&fit=crop",
+    "colors": [
+      "Midnight",
+      "Starlight",
+      "(PRODUCT)RED"
     ],
-    "colors": ["Midnight", "Starlight", "Red"],
     "storages": [
-      { "label": "64GB", "price": 6499000 },
-      { "label": "128GB", "price": 7499000 },
-      { "label": "256GB", "price": 8999000 }
+      {
+        "label": "64GB",
+        "price": 6499000
+      },
+      {
+        "label": "128GB",
+        "price": 7499000
+      }
     ],
-    "desc": "Desain klasik 4.7 inci dengan tombol Touch ID ikonik dan ditenagai chip kencang A15 Bionic. Pilihan iPhone paling terjangkau dengan durabilitas teruji.",
+    "desc": "Desain ikonik klasik dengan tombol Touch ID Home, diperkuat chip A15 Bionic secepat iPhone 13 dan koneksi 5G.",
     "specs": {
       "Layar": "4.7\" Retina HD",
       "Chip": "A15 Bionic",
       "Kamera": "12MP Wide Camera",
       "Baterai": "Hingga 15 jam pemutaran video",
-      "Ketahanan": "IP67 Water & Dust Resistance",
+      "Ketahanan": "IP67",
       "Garansi": "Resmi 1 tahun"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-se-gen-3"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-14-plus-bekas",
     "name": "iPhone 14 Plus",
     "cat": "Plus Model",
     "condition": "Second",
-    "spec": "128GB · Blue · BH 91%",
-    "price": 7499000,
-    "badge": "Mulus",
-    "rating": 4.7,
-    "sold": 45,
-    "img": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1000&q=80&auto=format&fit=crop"
+    "spec": "128GB · Blue · Ex-iBox 99%",
+    "price": 9499000,
+    "badge": "Mulus 99%",
+    "rating": 4.8,
+    "sold": 75,
+    "img": "assets/img/productNew/iphone-14-blue.webp",
+    "colors": [
+      "Blue"
     ],
-    "colors": ["Blue"],
-    "storages": [{ "label": "128GB", "price": 7499000 }],
-    "desc": "iPhone 14 Plus second kondisi sangat baik. Battery Health 91%, layar bebas baret, semua fungsi normal. Sudah lolos 30 titik inspeksi tim kami dan bergaransi toko 14 hari tukar.",
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 9499000
+      }
+    ],
+    "desc": "Unit second mulus 99% Ex-Garansi Resmi iBox. Layar 6.7 inci luas dan baterai sangat sehat 92%+, lolos inspeksi 30 titik toko.",
     "specs": {
-      "Kondisi": "<em>Second</em> — mulus, like new",
-      "Battery Health": "91%",
-      "Layar": "6.7\" Super Retina XDR",
-      "Chip": "A15 Bionic",
-      "Kelengkapan": "Unit + kabel (Box opsional)",
-      "Garansi": "Garansi toko 14 hari tukar"
+      "Kondisi": "Mulus 99% no dent, Ex-iBox",
+      "Battery Health": "92%",
+      "Kelengkapan": "Fullset OEM Box + Cable",
+      "Layar": "6.7\" Super Retina XDR OLED",
+      "Garansi": "Garansi toko 14 hari tukar unit"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-14-plus-bekas"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-13-pro-bekas",
     "name": "iPhone 13 Pro",
     "cat": "Pro Model",
     "condition": "Second",
-    "spec": "128GB · Sierra Blue · BH 86%",
-    "price": 8999000,
-    "badge": "Favorit",
+    "spec": "128GB · Sierra Blue · 98%",
+    "price": 9999000,
+    "badge": "Mulus",
     "rating": 4.8,
-    "sold": 54,
-    "img": "https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=1000&q=80&auto=format&fit=crop"
+    "sold": 110,
+    "img": "assets/img/productNew/iphone-13-pro-max-sierra-blue.webp",
+    "colors": [
+      "Sierra Blue"
     ],
-    "colors": ["Sierra Blue", "Graphite"],
-    "storages": [{ "label": "128GB", "price": 8999000 }],
-    "desc": "Layar ProMotion 120Hz super halus dan 3 kamera profesional dengan harga sangat bersahabat. Battery Health 86%, fungsi 100% normal dan bergaransi toko 14 hari tukar.",
-    "specs": {
-      "Kondisi": "<em>Second</em> — mulus terawat",
-      "Battery Health": "86%",
-      "Layar": "6.1\" Super Retina XDR, ProMotion 120Hz",
-      "Chip": "A15 Bionic",
-      "Kelengkapan": "Unit + kabel",
-      "Garansi": "Garansi toko 14 hari tukar"
-    },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-13-pro-bekas"
-  },
-  {
-    "id": "iphone-13-bekas",
-    "name": "iPhone 13",
-    "cat": "Standard / Base Model",
-    "condition": "Second",
-    "spec": "128GB · Starlight · BH 88%",
-    "price": 5799000,
-    "badge": null,
-    "rating": 4.7,
-    "sold": 62,
-    "img": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=1000&q=80&auto=format&fit=crop"
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 9999000
+      },
+      {
+        "label": "256GB",
+        "price": 11299000
+      }
     ],
-    "colors": ["Starlight"],
-    "storages": [{ "label": "128GB", "price": 5799000 }],
-    "desc": "Entry point paling hemat ke ekosistem iPhone. Unit second rapi, Battery Health 88%, kamera dan Face ID normal. Lolos inspeksi 30 titik dan garansi toko 14 hari tukar.",
+    "desc": "iPhone 13 Pro second kondisi terawat 98%. Layar mulus 120Hz ProMotion, kamera 3x optical zoom tajam, battery health 88%.",
     "specs": {
-      "Kondisi": "<em>Second</em> — rapi, minim baret",
+      "Kondisi": "Mulus 98%, all function normal",
       "Battery Health": "88%",
-      "Layar": "6.1\" Super Retina XDR",
-      "Chip": "A15 Bionic",
-      "Kelengkapan": "Unit + kabel",
-      "Garansi": "Garansi toko 14 hari tukar"
+      "Kelengkapan": "Unit + Box original",
+      "Layar": "6.1\" Super Retina XDR 120Hz",
+      "Garansi": "Garansi toko 14 hari tukar unit"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-13-bekas"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   },
   {
     "id": "iphone-12-pro-max-bekas",
     "name": "iPhone 12 Pro Max",
     "cat": "Pro Max Model",
     "condition": "Second",
-    "spec": "128GB · Pacific Blue · BH 84%",
-    "price": 4999000,
-    "badge": null,
-    "rating": 4.6,
-    "sold": 38,
-    "img": "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=800&q=80&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=1000&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1000&q=80&auto=format&fit=crop"
+    "spec": "128GB · Graphite · 97%",
+    "price": 8299000,
+    "badge": "Mulus",
+    "rating": 4.7,
+    "sold": 95,
+    "img": "assets/img/productNew/iphone-12-pro-max-graphite.webp",
+    "colors": [
+      "Graphite"
     ],
-    "colors": ["Pacific Blue"],
-    "storages": [{ "label": "128GB", "price": 4999000 }],
-    "desc": "iPhone Pro dengan harga paling bersahabat. Unit second dengan Battery Health 84%, fungsi lengkap normal, bodi masih kokoh. Lolos inspeksi 30 titik, garansi toko 14 hari tukar.",
+    "storages": [
+      {
+        "label": "128GB",
+        "price": 8299000
+      }
+    ],
+    "desc": "Layar lebar 6.7 inci dengan bodi stainless steel graphite elegan. Sinyal all operator aktif permanen dan lolos QC 30 titik.",
     "specs": {
-      "Kondisi": "<em>Second</em> — baik, ada baret halus",
-      "Battery Health": "84%",
-      "Layar": "6.7\" Super Retina XDR, 60Hz",
-      "Chip": "A14 Bionic",
-      "Kelengkapan": "Unit + kabel",
-      "Garansi": "Garansi toko 14 hari tukar"
+      "Kondisi": "Fisik 97% pemakaian wajar",
+      "Battery Health": "86%",
+      "Kelengkapan": "Unit + Fast Charger",
+      "Layar": "6.7\" Super Retina XDR OLED",
+      "Garansi": "Garansi toko 14 hari tukar unit"
     },
-    "tokopedia": "https://www.tokopedia.com/nafaistore/iphone-12-pro-max-bekas"
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-xs-max-bekas",
+    "name": "iPhone XS Max",
+    "cat": "Pro Max Model",
+    "condition": "Second",
+    "spec": "64GB · Gold · 97%",
+    "price": 4999000,
+    "badge": "Mulus",
+    "rating": 4.7,
+    "sold": 140,
+    "img": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800&q=80&auto=format&fit=crop",
+    "colors": [
+      "Gold",
+      "Space Grey"
+    ],
+    "storages": [
+      {
+        "label": "64GB",
+        "price": 4999000
+      },
+      {
+        "label": "256GB",
+        "price": 5699000
+      }
+    ],
+    "desc": "Seri flagship layar besar 6.5 inci OLED Super Retina dengan bodi stainless steel gold mewah dan dual kamera portrait mode.",
+    "specs": {
+      "Kondisi": "Fisik 97%, Face ID & TrueTone On",
+      "Battery Health": "85%",
+      "Layar": "6.5\" Super Retina OLED",
+      "Chip": "A12 Bionic",
+      "Garansi": "Garansi toko 14 hari tukar unit"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-xr-bekas",
+    "name": "iPhone XR",
+    "cat": "Standard / Base Model",
+    "condition": "Second",
+    "spec": "64GB · Black · 96%",
+    "price": 3699000,
+    "badge": "Hemat",
+    "rating": 4.7,
+    "sold": 320,
+    "img": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=80&auto=format&fit=crop",
+    "colors": [
+      "Black",
+      "White",
+      "Coral",
+      "Red"
+    ],
+    "storages": [
+      {
+        "label": "64GB",
+        "price": 3699000
+      },
+      {
+        "label": "128GB",
+        "price": 4299000
+      }
+    ],
+    "desc": "iPhone terlaris berlayar 6.1 Liquid Retina dengan daya tahan baterai legendaris. Face ID normal dan sinyal lancar all operator.",
+    "specs": {
+      "Kondisi": "Fisik 96% mulus terawat",
+      "Battery Health": "84%",
+      "Layar": "6.1\" Liquid Retina HD",
+      "Chip": "A12 Bionic",
+      "Garansi": "Garansi toko 14 hari tukar unit"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
+  },
+  {
+    "id": "iphone-x-bekas",
+    "name": "iPhone X",
+    "cat": "Standard / Base Model",
+    "condition": "Second",
+    "spec": "64GB · Space Grey · 95%",
+    "price": 3199000,
+    "badge": "Klasik",
+    "rating": 4.6,
+    "sold": 210,
+    "img": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80&auto=format&fit=crop",
+    "colors": [
+      "Space Grey",
+      "Silver"
+    ],
+    "storages": [
+      {
+        "label": "64GB",
+        "price": 3199000
+      },
+      {
+        "label": "256GB",
+        "price": 3799000
+      }
+    ],
+    "desc": "iPhone edisi ulang tahun ke-10 yang merevolusi smartphone modern dengan layar OLED bezel-less dan Face ID pertama di dunia.",
+    "specs": {
+      "Kondisi": "Fisik 95%, Face ID aktif",
+      "Battery Health": "83%",
+      "Layar": "5.8\" Super Retina OLED",
+      "Chip": "A11 Bionic",
+      "Garansi": "Garansi toko 14 hari tukar unit"
+    },
+    "tokopedia": "https://www.tokopedia.com/nafaistore"
   }
 ]

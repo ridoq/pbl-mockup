@@ -1,0 +1,63 @@
+/* ============================================================
+   SCROLLBAR COMPONENT (ATOM) — NAFA iSTORE
+   ============================================================ */
+
+/* Scrollbar tipis tanpa panah — track di-inset agar tidak menimpa border-radius */
+.nafa-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+  scrollbar-gutter: stable;
+}
+
+.nafa-scroll::-webkit-scrollbar {
+  width: 8px; /* track 8px, thumb tipis di tengah */
+}
+
+.nafa-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 24px 0; /* sisakan ruang atas & bawah (radius aman) */
+}
+
+.nafa-scroll::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 999px;
+  border: 2.5px solid transparent;
+  background-clip: padding-box; /* bikin thumb efektif ~3px */
+}
+
+.nafa-scroll::-webkit-scrollbar-thumb:hover {
+  background: #0a0a0a;
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Firefox: padding track via margin juga berlaku */
+@supports (-moz-appearance: none) {
+  .nafa-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d4 transparent;
+  }
+}
+
+/* Fade halus di ujung atas & bawah isi filter panel */
+#filterPanel .fade-zone::before,
+#filterPanel .fade-zone::after {
+  content: "";
+  position: sticky;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  height: 24px;
+  pointer-events: none;
+}
+
+#filterPanel .fade-zone::before {
+  top: 0;
+  background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0));
+}
+
+#filterPanel .fade-zone::after {
+  bottom: 0;
+  background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0));
+}

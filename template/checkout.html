@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — NAFA iSTORE</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/config/tailwind.config.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+<body class="bg-white font-sans text-ink antialiased selection:bg-cream selection:text-ink">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-silver-200 bg-white/85 backdrop-blur-md">
+    <nav class="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <svg width="30" height="34" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#0A0A0A" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.03 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+          <text x="11" y="15" text-anchor="middle" font-size="6" font-weight="800" fill="#F6F1E7" font-family="Inter, sans-serif">NF</text>
+        </svg>
+        <span class="font-display text-lg font-bold tracking-wide sm:text-xl">NAFA <span class="italic">i</span>STORE</span>
+      </a>
+      <ul class="hidden items-center gap-8 text-[15px] font-medium text-neutral-600 md:flex">
+        <li><a href="index.html" class="transition hover:text-ink">Beranda</a></li>
+        <li><a href="katalog.html" class="transition hover:text-ink">Katalog</a></li>
+        <li><a href="blog.html" class="transition hover:text-ink">Blog</a></li>
+        <li><a href="kontak.html" class="transition hover:text-ink">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="max-w-xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">Checkout</p>
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Selesaikan pesananmu</h1>
+      <p class="mt-3 text-neutral-500">Isi data diri, lalu pilih metode: ambil di toko atau lanjut ke Tokopedia.</p>
+    </div>
+
+    <!-- Produk tidak terpilih -->
+    <div id="noProduct" class="hidden mt-12 rounded-4xl border border-silver-200 bg-silver-100 p-16 text-center">
+      <p class="text-4xl">🛒</p>
+      <h2 class="mt-4 text-lg font-semibold">Belum ada produk yang dipilih</h2>
+      <p class="mt-2 text-sm text-neutral-500">Pilih dulu iPhone yang kamu mau dari katalog ya.</p>
+      <a href="katalog.html" class="mt-6 inline-block rounded-full bg-ink px-8 py-3.5 text-sm font-semibold text-white">Ke Katalog</a>
+    </div>
+
+    <div id="checkoutWrap" class="mt-10 grid items-start gap-8 lg:grid-cols-5">
+
+      <!-- ═══ KOLOM KIRI: Form + metode ═══ -->
+      <div id="formSection" class="lg:col-span-3">
+        <form id="checkoutForm" novalidate>
+          <!-- Info pribadi -->
+          <div class="rounded-4xl border border-silver-200 p-7 sm:p-9">
+            <h2 class="text-lg font-semibold">1. Informasi Pribadi</h2>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+              <div class="sm:col-span-2">
+                <label class="text-sm font-medium" for="fName">Nama Lengkap *</label>
+                <input id="fName" type="text" placeholder="Sesuai KTP/ID"
+                       class="mt-2 w-full rounded-2xl border border-silver-200 bg-white px-5 py-3.5 text-sm outline-none transition focus:border-ink" />
+                <p class="err mt-1.5 hidden text-xs text-red-500">Nama minimal 3 karakter.</p>
+              </div>
+              <div>
+                <label class="text-sm font-medium" for="fPhone">No. WhatsApp *</label>
+                <input id="fPhone" type="tel" placeholder="0812xxxxxxx"
+                       class="mt-2 w-full rounded-2xl border border-silver-200 bg-white px-5 py-3.5 text-sm outline-none transition focus:border-ink" />
+                <p class="err mt-1.5 hidden text-xs text-red-500">Nomor WhatsApp tidak valid (9–15 digit angka).</p>
+              </div>
+              <div>
+                <label class="text-sm font-medium" for="fEmail">Email *</label>
+                <input id="fEmail" type="email" placeholder="nama@email.com"
+                       class="mt-2 w-full rounded-2xl border border-silver-200 bg-white px-5 py-3.5 text-sm outline-none transition focus:border-ink" />
+                <p class="err mt-1.5 hidden text-xs text-red-500">Format email tidak valid.</p>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="text-sm font-medium" for="fNote">Catatan (opsional)</label>
+                <textarea id="fNote" rows="3" placeholder="Contoh: minta yang Ngabuburit share region Indonesia, kirim kado, dll."
+                          class="mt-2 w-full resize-none rounded-2xl border border-silver-200 bg-white px-5 py-3.5 text-sm outline-none transition focus:border-ink"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metode pembelian -->
+          <div class="mt-6 rounded-4xl border border-silver-200 p-7 sm:p-9">
+            <h2 class="text-lg font-semibold">2. Metode Pembelian</h2>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <!-- Opsi Pickup -->
+              <label class="cursor-pointer">
+                <input type="radio" name="method" value="pickup" class="peer sr-only" checked />
+                <div class="rounded-3xl border-2 border-silver-200 p-6 transition peer-checked:border-ink peer-checked:bg-silver-100">
+                  <div class="flex items-center justify-between">
+                    <span class="text-2xl">🏬</span>
+                    <span class="grid h-6 w-6 place-items-center rounded-full border-2 border-silver-300 peer-checked:bg-ink peer-checked:border-ink"></span>
+                  </div>
+                  <h3 class="mt-4 font-semibold">Pickup In Store</h3>
+                  <p class="mt-1 text-xs leading-relaxed text-neutral-500">Ambil langsung di toko kami. Bayar di tempat, cek unit sebelum pulang.</p>
+                </div>
+              </label>
+              <!-- Opsi Tokopedia -->
+              <label class="cursor-pointer">
+                <input type="radio" name="method" value="tokopedia" class="peer sr-only" />
+                <div class="rounded-3xl border-2 border-silver-200 p-6 transition peer-checked:border-ink peer-checked:bg-silver-100">
+                  <div class="flex items-center justify-between">
+                    <span class="text-2xl">🟢</span>
+                  </div>
+                  <h3 class="mt-4 font-semibold">Beli via Tokopedia</h3>
+                  <p class="mt-1 text-xs leading-relaxed text-neutral-500">Transaksi aman lewat Tokopedia. Bisa COD, paylater & cicilan.</p>
+                </div>
+              </label>
+            </div>
+
+            <!-- Jadwal pickup (muncul kalau pilih pickup) -->
+            <div id="pickupSchedule" class="mt-6 rounded-3xl bg-silver-100 p-6">
+              <p class="text-sm font-semibold">Jadwal pengambilan</p>
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="text-xs font-medium text-neutral-500" for="fDate">Tanggal *</label>
+                  <input id="fDate" type="date"
+                         class="mt-2 w-full rounded-2xl border border-silver-200 bg-white px-5 py-3 text-sm outline-none transition focus:border-ink" />
+                  <p class="err mt-1.5 hidden text-xs text-red-500">Pilih tanggal pengambilan.</p>
+                </div>
+                <div>
+                  <label class="text-xs font-medium text-neutral-500" for="fTime">Jam *</label>
+                  <select id="fTime" class="mt-2 w-full rounded-2xl border border-silver-200 bg-white px-5 py-3 text-sm outline-none transition focus:border-ink">
+                    <option value="">Pilih jam...</option>
+                    <option>10:00 – 11:00</option>
+                    <option>11:00 – 12:00</option>
+                    <option>13:00 – 14:00</option>
+                    <option>14:00 – 15:00</option>
+                    <option>15:00 – 16:00</option>
+                    <option>16:00 – 17:00</option>
+                    <option>19:00 – 20:00</option>
+                  </select>
+                  <p class="err mt-1.5 hidden text-xs text-red-500">Pilih jam pengambilan.</p>
+                </div>
+              </div>
+              <p class="mt-4 flex items-start gap-2 text-xs leading-relaxed text-neutral-500">
+                📍 <span id="storeScheduleText">Jl. Teknologi No. 88, Jakarta Selatan — Setiap hari, 09.00–21.00 WIB</span>
+              </p>
+            </div>
+
+            <div id="tokpedInfo" class="mt-6 hidden rounded-3xl bg-cream p-6 text-sm leading-relaxed">
+              Kamu akan diarahkan ke <strong>Tokopedia</strong> untuk menyelesaikan pembayaran.
+              Pastikan data di atas sudah benar — tim kami akan menghubungimu via WhatsApp untuk konfirmasi stok.
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn"
+                  class="mt-8 w-full rounded-full bg-ink px-8 py-4.5 py-4 text-sm font-semibold text-white transition hover:bg-neutral-800">
+            Konfirmasi Pesanan Pickup
+          </button>
+          <p class="mt-3 text-center text-xs text-neutral-400">Dengan melanjutkan, kamu menyetujui syarat & ketentuan NAFA iSTORE.</p>
+        </form>
+
+        <!-- ═══ PANEL SUKSES (menggantikan form) ═══ -->
+        <div id="successPanel" class="hidden rounded-4xl border-2 border-ink bg-cream p-8 sm:p-10">
+          <div class="grid h-14 w-14 place-items-center rounded-full bg-ink text-xl text-cream">✓</div>
+          <h2 class="mt-5 text-2xl font-semibold tracking-tight">Pesanan diterima! 🎉</h2>
+          <p class="mt-2 text-sm text-neutral-600">Simpan kode pesanan ini dan tunjukkan saat datang ke toko.</p>
+          <div class="mt-6 rounded-2xl border border-creamdark bg-white p-5">
+            <p class="text-xs text-neutral-400">Kode Pesanan</p>
+            <p class="font-display mt-1 text-2xl font-bold tracking-wider" id="orderCode">—</p>
+          </div>
+          <div id="orderSummary" class="mt-5 space-y-2 border-t border-creamdark pt-5 text-sm"></div>
+          <div class="mt-6 rounded-2xl bg-white p-5 text-sm leading-relaxed text-neutral-600">
+            <p class="font-semibold text-ink">Instruksi pengambilan:</p>
+            <ol class="mt-2 list-decimal space-y-1 pl-5">
+              <li>Datang sesuai jadwal ke <strong id="storePickupAddress">Jl. Teknologi No. 88, Jakarta Selatan</strong></li>
+              <li>Tunjukkan kode pesanan + KTP/ID</li>
+              <li>Tim kami akan unboxing & cek unit bareng kamu</li>
+              <li>Pembayaran di tempat (cash / QRIS / debit / kartu kredit)</li>
+            </ol>
+          </div>
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a id="waConfirm" href="#" target="_blank" rel="noopener"
+               class="flex-1 rounded-full bg-ink px-8 py-4 text-center text-sm font-semibold text-white transition hover:bg-neutral-800">
+              Konfirmasi via WhatsApp
+            </a>
+            <a href="katalog.html" class="flex-1 rounded-full border border-creamdark bg-white px-8 py-4 text-center text-sm font-semibold transition hover:border-ink">
+              Lanjut Belanja
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ KOLOM KANAN: Ringkasan ═══ -->
+      <aside class="lg:col-span-2">
+        <div class="sticky top-24 rounded-4xl border border-silver-200 p-7">
+          <h2 class="text-lg font-semibold">Ringkasan Pesanan</h2>
+          <div id="summaryCard" class="mt-5"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="border-t border-silver-200 bg-silver-100">
+    <div class="mx-auto max-w-7xl px-4 py-10">
+      <p class="text-center text-xs text-neutral-400">© 2025 NAFA iSTORE — World From Device</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 translate-y-20 rounded-full bg-cream px-6 py-3.5 text-sm font-medium text-ink opacity-0 shadow-2xl transition-all duration-300">
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="../assets/js/data-produk.js"></script>
+  <script src="../assets/js/components/navbar.js"></script>
+  <script src="../assets/js/components/toast.js"></script>
+  <script src="../assets/js/pages/checkout.js"></script>
+</body>
+</html>
