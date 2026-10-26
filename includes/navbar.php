@@ -34,7 +34,12 @@ if ($current_page === '' || $current_page === 'index') {
 
         <!-- Action / CTA & Mobile Menu Toggle -->
         <div class="flex items-center gap-2">
-            <a href="<?= base_url('katalog.php') ?>" class="hidden rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800 md:inline-block">Lihat Katalog</a>
+            <a href="<?= base_url('auth/login.php') ?>" class="hidden items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800 md:inline-flex">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+                </svg>
+                Masuk
+            </a>
             <button id="menuBtn" class="grid h-11 w-11 place-items-center rounded-full border border-silver-300 md:hidden" aria-label="Menu">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
             </button>
@@ -48,7 +53,12 @@ if ($current_page === '' || $current_page === 'index') {
             <li><a href="<?= base_url('katalog.php') ?>" class="block rounded-xl <?= $current_page === 'katalog' ? 'bg-cream font-semibold' : 'hover:bg-cream' ?> px-4 py-3">Katalog</a></li>
             <li><a href="<?= base_url('blog.php') ?>" class="block rounded-xl <?= $current_page === 'blog' ? 'bg-cream font-semibold' : 'hover:bg-cream' ?> px-4 py-3">Blog</a></li>
             <li><a href="<?= base_url('kontak.php') ?>" class="block rounded-xl <?= $current_page === 'kontak' ? 'bg-cream font-semibold' : 'hover:bg-cream' ?> px-4 py-3">Kontak</a></li>
-            <li class="pt-2"><a href="<?= base_url('katalog.php') ?>" class="block rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-white">Lihat Katalog</a></li>
+            <li class="pt-2"><a href="<?= base_url('auth/login.php') ?>" class="flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+                </svg>
+                Masuk
+            </a></li>
         </ul>
     </div>
 </header>

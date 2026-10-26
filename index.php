@@ -72,41 +72,37 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- ══════════ KEUNGGULAN / NILAI UTAMA ══════════ -->
         <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
-                <div class="reveal group">
-                    <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="reveal group text-center">
+                    <div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" />
                         </svg>
                     </div>
-                    <p class="text-3xl font-semibold tracking-tight sm:text-4xl">100%</p>
-                    <p class="mt-2 text-sm text-neutral-500">Unit resmi iBox bergaransi</p>
+                    <p class="text-sm text-neutral-500">Unit resmi iBox bergaransi</p>
                 </div>
-                <div class="reveal group">
-                    <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="reveal group text-center">
+                    <div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                             <rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" />
                         </svg>
                     </div>
-                    <p class="text-3xl font-semibold tracking-tight sm:text-4xl">30+</p>
-                    <p class="mt-2 text-sm text-neutral-500">Titik uji kualitas &amp; fungsi</p>
+                    <p class="text-sm text-neutral-500">Titik uji kualitas &amp; fungsi</p>
                 </div>
-                <div class="reveal group">
-                    <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="reveal group text-center">
+                    <div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" />
                         </svg>
                     </div>
-                    <p class="text-3xl font-semibold tracking-tight sm:text-4xl">98%+</p>
-                    <p class="mt-2 text-sm text-neutral-500">Standar fisik mulus Grade A</p>
+                    <p class="text-sm text-neutral-500">Standar fisik mulus Grade A</p>
                 </div>
-                <div class="reveal group">
-                    <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="reveal group text-center">
+                    <div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-cream text-ink shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-md">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" />
                         </svg>
                     </div>
-                    <p class="text-3xl font-semibold tracking-tight sm:text-4xl">Gratis</p>
-                    <p class="mt-2 text-sm text-neutral-500">Konsultasi &amp; cek unit di toko</p>
+                    <p class="text-sm text-neutral-500">Konsultasi &amp; cek unit di toko</p>
                 </div>
             </div>
         </section>
