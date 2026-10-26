@@ -22,7 +22,7 @@ $admin_page = 'pesanan';
 
     <div class="flex flex-1 flex-col overflow-hidden">
         <header class="flex h-16 items-center justify-between border-b border-silver-200 bg-white px-8">
-            <h1 class="font-display text-xl font-bold">Kunjungan Gerai & Pesanan</h1>
+            <h1 class="text-xl font-bold">Kunjungan Gerai & Pesanan</h1>
         </header>
 
         <main class="flex-1 overflow-y-auto p-8">

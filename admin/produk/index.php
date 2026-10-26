@@ -27,7 +27,7 @@ $products = json_decode($productsJson, true) ?? [];
 
     <div class="flex flex-1 flex-col overflow-hidden">
         <header class="flex h-16 items-center justify-between border-b border-silver-200 bg-white px-8">
-            <h1 class="font-display text-xl font-bold">Katalog Inventaris iPhone</h1>
+            <h1 class="text-xl font-bold">Katalog Inventaris iPhone</h1>
             <a href="<?= base_url('admin/produk/tambah.php') ?>" class="rounded-full bg-ink px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-neutral-800">
                 + Tambah Unit Baru
             </a>

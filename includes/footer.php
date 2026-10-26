@@ -18,7 +18,7 @@ require_once __DIR__ . '/helpers.php';
                             />
                             <text x="11" y="15" text-anchor="middle" font-size="6" font-weight="800" fill="#F6F1E7" font-family="Inter, sans-serif">NF</text>
                         </svg>
-                        <span class="font-display text-base font-bold tracking-wide sm:text-lg">NAFA <span class="italic">i</span>STORE</span>
+                        <span class="text-base font-bold tracking-wide sm:text-lg">NAFA <span class="italic">i</span>STORE</span>
                     </a>
                     <p class="mt-4 max-w-sm text-sm leading-relaxed text-neutral-500">
                         Destinasi terpercaya untuk iPhone original baru maupun second bergaransi resmi. Kualitas terinspeksi, transparan, dan terpercaya di Malang.

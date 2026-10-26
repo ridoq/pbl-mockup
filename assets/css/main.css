@@ -3,10 +3,104 @@
    Atomic / Component Architecture
    ============================================================ */
 
-/* Google Fonts (Playfair Display & Inter) */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap');
+/* Google Fonts: Inter (Clean Modern Sans-Serif) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
 
-/* Component (Atomic) Styles */
+/* Component (Atomic) Styles — MUST BE AT TOP OF CSS FILE */
 @import './components/animations.css';
 @import './components/scrollbar.css';
 @import './components/toast.css';
+
+/* Force clean modern Sans-Serif globally */
+html, body, h1, h2, h3, h4, h5, h6, p, a, span, button, input, select, textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Custom font override utility */
+.font-calibri {
+  font-family: 'Calibri', 'Candara', 'Segoe UI', Arial, sans-serif !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   Product Stage — Background modern & clean untuk gambar produk
+   Dipakai di: card (index, katalog, related), galeri & thumbnail
+   detail produk. Soft neutral gradient + halo lembut di belakang
+   unit, tanpa warna mencolok agar foto produk tetap dominan.
+   ════════════════════════════════════════════════════════════ */
+.product-stage {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 55%),
+    radial-gradient(75% 60% at 50% 58%, #ffffff 0%, rgba(255, 255, 255, 0.55) 42%, rgba(255, 255, 255, 0) 74%),
+    linear-gradient(165deg, #faf9f6 0%, #f3f1ec 48%, #ecebe6 100%);
+}
+
+/* Halo cahaya lembut di belakang unit (pseudo-element, opsional) */
+.product-stage-halo::before {
+  content: "";
+  position: absolute;
+  inset: 12% 16% 14%;
+  border-radius: 9999px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+/* Efek tipis: bayangan lembut di bawah unit + ground shadow ellips,
+   agar unit putih/silver tidak menyatu dengan background stage */
+.product-stage img {
+  filter: drop-shadow(0 3px 5px rgba(10, 10, 10, 0.05)) drop-shadow(0 14px 22px rgba(10, 10, 10, 0.12));
+}
+.product-stage-halo::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 6%;
+  height: 9%;
+  border-radius: 9999px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(10, 10, 10, 0.07) 0%, rgba(10, 10, 10, 0) 72%);
+  pointer-events: none;
+}
+
+/* Chip info warna di pojok gambar produk */
+.stage-color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.4rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.06);
+}
+/* Pembatas lebar khusus chip yang menempel langsung di stage (card produk) */
+.stage-color-chip.chip-clamp {
+  max-width: calc(100% - 1.5rem);
+}
+.stage-color-chip .dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1px rgba(10, 10, 10, 0.15);
+}
+.stage-color-chip .txt {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #404040;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Scrollbar disembunyikan untuk carousel horizontal (tetap bisa di-scroll/drag) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+

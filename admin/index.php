@@ -32,7 +32,7 @@ $admin_page = 'dashboard';
     <div class="flex flex-1 flex-col overflow-hidden">
         <!-- Topbar -->
         <header class="flex h-16 items-center justify-between border-b border-silver-200 bg-white px-8">
-            <h1 class="font-display text-xl font-bold">Dashboard Toko</h1>
+            <h1 class="text-xl font-bold">Dashboard Toko</h1>
             <div class="flex items-center gap-4">
                 <span class="inline-flex items-center gap-2 rounded-full bg-cream px-3 py-1 text-xs font-semibold text-ink">
                     <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -51,7 +51,7 @@ $admin_page = 'dashboard';
                         <span class="text-xs font-bold uppercase tracking-wider text-neutral-400">Total Unit Ready</span>
                         <span class="rounded-xl bg-cream p-2 text-base">📱</span>
                     </div>
-                    <p class="font-display mt-4 text-3xl font-bold">29 Unit</p>
+                    <p class="mt-4 text-3xl font-bold">29 Unit</p>
                     <p class="mt-1 text-xs text-neutral-400">iPhone X s/d iPhone 18 Series</p>
                 </div>
                 <div class="rounded-3xl border border-silver-200 bg-white p-6 shadow-sm">
@@ -59,7 +59,7 @@ $admin_page = 'dashboard';
                         <span class="text-xs font-bold uppercase tracking-wider text-neutral-400">Kunjungan Gerai</span>
                         <span class="rounded-xl bg-cream p-2 text-base">🏬</span>
                     </div>
-                    <p class="font-display mt-4 text-3xl font-bold">12 Janji</p>
+                    <p class="mt-4 text-3xl font-bold">12 Janji</p>
                     <p class="mt-1 text-xs text-emerald-600 font-semibold">+3 reservasi hari ini</p>
                 </div>
                 <div class="rounded-3xl border border-silver-200 bg-white p-6 shadow-sm">
@@ -67,16 +67,16 @@ $admin_page = 'dashboard';
                         <span class="text-xs font-bold uppercase tracking-wider text-neutral-400">Unit Terjual (Okt)</span>
                         <span class="rounded-xl bg-cream p-2 text-base">🛍️</span>
                     </div>
-                    <p class="font-display mt-4 text-3xl font-bold">18 Unit</p>
+                    <p class="mt-4 text-3xl font-bold">18 Unit</p>
                     <p class="mt-1 text-xs text-neutral-400">Estimasi omset Rp 245jt</p>
                 </div>
                 <div class="rounded-3xl border border-silver-200 bg-white p-6 shadow-sm">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold uppercase tracking-wider text-neutral-400">Status 3uTools</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-neutral-400">Inspeksi QC</span>
                         <span class="rounded-xl bg-cream p-2 text-base">🛡️</span>
                     </div>
-                    <p class="font-display mt-4 text-3xl font-bold text-emerald-600">100%</p>
-                    <p class="mt-1 text-xs text-neutral-400">All Green terinspeksi 30 titik</p>
+                    <p class="mt-4 text-3xl font-bold text-emerald-600">100%</p>
+                    <p class="mt-1 text-xs text-neutral-400">Lolos uji fungsi ketat</p>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@ $admin_page = 'dashboard';
             <div class="mt-8 rounded-3xl border border-silver-200 bg-white p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 class="font-display text-lg font-bold">Jadwal Kunjungan Gerai Hari Ini</h2>
+                        <h2 class="text-lg font-bold">Jadwal Kunjungan Gerai Hari Ini</h2>
                         <p class="text-xs text-neutral-400">Pelanggan yang reservasi coba unit di lounge Malang</p>
                     </div>
                     <a href="<?= base_url('admin/pesanan/index.php') ?>" class="text-xs font-semibold text-neutral-600 underline underline-offset-4 hover:text-ink">Lihat Semua →</a>

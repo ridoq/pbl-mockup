@@ -21,7 +21,7 @@ $admin_page = 'pesanan';
 
     <div class="flex flex-1 flex-col overflow-hidden">
         <header class="flex h-16 items-center justify-between border-b border-silver-200 bg-white px-8">
-            <h1 class="font-display text-xl font-bold">Detail Reservasi #ORD-20261025-01</h1>
+            <h1 class="text-xl font-bold">Detail Reservasi #ORD-20261025-01</h1>
             <a href="<?= base_url('admin/pesanan/index.php') ?>" class="text-xs font-semibold text-neutral-400 hover:text-ink">← Kembali</a>
         </header>
 
@@ -29,7 +29,7 @@ $admin_page = 'pesanan';
             <div class="max-w-2xl rounded-3xl border border-silver-200 bg-white p-8 shadow-sm space-y-6">
                 <div>
                     <span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 border border-amber-200">Status: Menunggu Check-in</span>
-                    <h2 class="mt-4 font-display text-2xl font-bold">Taufiqi Ridho Maulana</h2>
+                    <h2 class="mt-4 text-2xl font-bold">Taufiqi Ridho Maulana</h2>
                     <p class="text-sm text-neutral-500">WhatsApp: 0857-0000-1122 · Email: ridho@student.polinema.ac.id</p>
                 </div>
                 <div class="rounded-2xl border border-silver-200 p-5 bg-silver-100">

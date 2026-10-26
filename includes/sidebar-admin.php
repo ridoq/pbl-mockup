@@ -18,7 +18,7 @@ $admin_page = $admin_page ?? '';
             <text x="11" y="15" text-anchor="middle" font-size="6" font-weight="800" fill="#F6F1E7" font-family="Inter, sans-serif">NF</text>
         </svg>
         <div>
-            <h2 class="font-display text-sm font-bold tracking-wide">NAFA <span class="italic">i</span>STORE</h2>
+            <h2 class="text-sm font-bold tracking-wide">NAFA <span class="italic">i</span>STORE</h2>
             <p class="text-[10px] font-medium text-neutral-400">Admin Control Panel</p>
         </div>
     </div>

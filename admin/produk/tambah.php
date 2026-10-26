@@ -21,7 +21,7 @@ $admin_page = 'produk';
 
     <div class="flex flex-1 flex-col overflow-hidden">
         <header class="flex h-16 items-center justify-between border-b border-silver-200 bg-white px-8">
-            <h1 class="font-display text-xl font-bold">Tambah Unit iPhone</h1>
+            <h1 class="text-xl font-bold">Tambah Unit iPhone</h1>
             <a href="<?= base_url('admin/produk/index.php') ?>" class="text-xs font-semibold text-neutral-400 hover:text-ink">← Kembali</a>
         </header>
 

@@ -25,8 +25,9 @@ require_once __DIR__ . '/includes/navbar.php';
     <div id="productWrap" class="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
       <!-- Galeri -->
       <div>
-        <div class="overflow-hidden rounded-4xl border border-silver-200 bg-cream">
-          <img id="mainImage" src="" alt="" class="aspect-square w-full object-contain p-6 sm:p-8 transition duration-300" />
+        <div class="product-stage product-stage-halo relative overflow-hidden rounded-4xl border border-silver-200">
+          <div id="mainColorChip" class="pointer-events-none absolute left-4 top-4 z-10"></div>
+          <img id="mainImage" src="" alt="" class="relative z-[1] aspect-square w-full object-contain p-6 sm:p-8 transition duration-300" />
         </div>
         <div id="thumbs" class="mt-4 grid grid-cols-4 gap-3"></div>
       </div>

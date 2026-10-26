@@ -5,6 +5,9 @@
 /* ============ Konfigurasi ============ */
 const PER_PAGE = 9;
 
+/* Halaman katalog: gambar produk tanpa chip info warna (grid lebih bersih) */
+window.NAFA_HIDE_CARD_COLOR_CHIP = true;
+
 const ALL_CATS = [
   "SE Series",
   "Standard / Base Model",
@@ -101,6 +104,27 @@ function applyFilters() {
   state.visible = PER_PAGE;
   renderCatalog();
 }
+
+/* Pre-set filter dari URL — dipakai card kategori di beranda:
+   ?cond=Baru|Second (kondisi) dan ?q=... (kata kunci, mis. "iPhone 18") */
+(function initFiltersFromUrl() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const cond = params.get("cond");
+    if (cond === "Baru" || cond === "Second") {
+      state.conds = new Set([cond]);
+      document.querySelectorAll(".condCheck").forEach((cb) => {
+        cb.checked = cb.value === cond;
+      });
+    }
+    const q = params.get("q");
+    if (q) {
+      state.search = q;
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput) searchInput.value = q;
+    }
+  } catch {}
+})();
 
 /* ============ Parse & Format Harga ============ */
 const parseNum = (str) => {

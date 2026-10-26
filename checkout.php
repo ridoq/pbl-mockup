@@ -139,7 +139,7 @@ require_once __DIR__ . '/includes/navbar.php';
           <p class="mt-2 text-sm text-neutral-600">Simpan kode pesanan ini dan tunjukkan saat datang ke toko.</p>
           <div class="mt-6 rounded-2xl border border-creamdark bg-white p-5">
             <p class="text-xs text-neutral-400">Kode Pesanan</p>
-            <p class="font-display mt-1 text-2xl font-bold tracking-wider" id="orderCode">—</p>
+            <p class="mt-1 text-2xl font-bold tracking-wider" id="orderCode">—</p>
           </div>
           <div id="orderSummary" class="mt-5 space-y-2 border-t border-creamdark pt-5 text-sm"></div>
           <div class="mt-6 rounded-2xl bg-white p-5 text-sm leading-relaxed text-neutral-600">

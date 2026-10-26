@@ -1428,6 +1428,40 @@ const rupiah = n => {
 };
 const findProduct = id => (PRODUCTS || []).find(p => p && p.id === id) || null;
 
+/* Warna → hex untuk swatch & chip info warna.
+   Nama color Apple/common dipetakan ke hex terdekat. */
+const COLOR_HEX = {
+  'deep crimson': '#6B1F2A', 'crimson': '#6B1F2A', 'cosmic amber': '#E08A2C', 'amber': '#E08A2C',
+  'ice blue': '#BFD7E4', 'cloud blue': '#A7C4DD', 'mist blue': '#9DB8CC', 'sierra blue': '#A6C1D8',
+  'pacific blue': '#2E4A62', 'deep blue': '#1E3A5F', 'blue': '#3B6EA5', 'blue titanium': '#3E5C76',
+  'ultramarine': '#3A5BDC', 'teal': '#2E7D74', 'platinum': '#E3E4E1', 'silver': '#D8DADA',
+  'starlight': '#E8E2D6', 'white': '#F5F5F5', 'white titanium': '#E6E7E4', 'cream': '#F6F1E7',
+  'obsidian black': '#1B1B1D', 'space black': '#2B2B2E', 'black': '#1C1C1E', 'midnight': '#1E2A38',
+  'black titanium': '#3A3C3E', 'space grey': '#5A5A5E', 'space gray': '#5A5A5E', 'graphite': '#4A4A4E',
+  'natural titanium': '#B7B1A6', 'desert titanium': '#C8A57B', 'gold': '#D9BC8C', 'purple': '#8E6AA8',
+  'deep purple': '#4B3A6B', 'lavender': '#C5B3DE', 'pink': '#F0B9C4', 'coral': '#F1795F',
+  'sage green': '#A8B5A0', 'green': '#5A7D63', 'midnight green': '#3E5250', 'yellow': '#F2D24B',
+  'red': '#C1272D', '(product)red': '#C1272D',
+};
+const colorHex = (name) => {
+  if (!name) return '#E5E5E5';
+  const key = String(name).toLowerCase().trim();
+  if (COLOR_HEX[key]) return COLOR_HEX[key];
+  const hit = Object.keys(COLOR_HEX).find(k => key.includes(k) || k.includes(key));
+  return hit ? COLOR_HEX[hit] : '#DCD9D2';
+};
+if (typeof window !== 'undefined') { window.colorHex = colorHex; }
+
+/* Chip info warna simple di pojok gambar produk (dipakai card & galeri detail) */
+function stageColorChip(colorName, extraClass = 'absolute left-3 top-3 z-10 chip-clamp sm:left-4 sm:top-4') {
+  if (!colorName) return '';
+  return `
+    <span class="stage-color-chip ${extraClass}">
+      <span class="dot" style="background:${colorHex(colorName)}"></span>
+      <span class="txt">${colorName}</span>
+    </span>`;
+}
+
 const resolveAssetUrl = url => {
   if (!url || url.startsWith('http') || url.startsWith('//') || url.startsWith('data:')) return url;
   if (typeof window !== 'undefined' && window.location) {
@@ -1448,18 +1482,20 @@ function productCardHTML(p) {
   const item = normalizeProduct(p);
   const pageExt = window.location.pathname.endsWith('.php') ? '.php' : '.html';
   const condChip = item.condition === 'Second'
-    ? `<span class="absolute right-3 top-3 rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold text-cream italic sm:right-4 sm:top-4">Second</span>`
-    : `<span class="absolute right-3 top-3 rounded-full border border-silver-200 bg-white px-2.5 py-1 text-[10px] font-semibold text-ink sm:right-4 sm:top-4">Baru</span>`;
+    ? `<span class="absolute right-3 top-3 z-10 rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold text-cream italic sm:right-4 sm:top-4">Second</span>`
+    : `<span class="absolute right-3 top-3 z-10 rounded-full border border-silver-200 bg-white px-2.5 py-1 text-[10px] font-semibold text-ink sm:right-4 sm:top-4">Baru</span>`;
 
   const displayImg = resolveAssetUrl(item.img);
+  const mainColor = (Array.isArray(item.colors) && item.colors[0]) || '';
 
   return `
   <a href="detail-produk${pageExt}?id=${item.id}"
      class="group block rounded-2xl border border-silver-200 bg-white p-2.5 transition hover:-translate-y-1 hover:border-creamdark hover:shadow-xl hover:shadow-silver-200/70 sm:rounded-3xl sm:p-4">
-    <div class="relative overflow-hidden rounded-xl bg-cream sm:rounded-2xl">
+    <div class="product-stage product-stage-halo relative overflow-hidden rounded-xl sm:rounded-2xl">
+      ${window.NAFA_HIDE_CARD_COLOR_CHIP ? '' : stageColorChip(mainColor)}
       <img src="${displayImg}" alt="${item.name}" loading="lazy"
-           class="aspect-square w-full object-contain p-2 sm:p-3 transition duration-500 group-hover:scale-105" />
-      ${item.badge ? `<span class="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-semibold sm:left-4 sm:top-4 ${item.badge === 'Hemat' || item.badge === 'Mulus' ? 'bg-white text-ink' : 'bg-ink text-cream'}">${item.badge}</span>` : ''}
+           class="relative z-[1] aspect-square w-full object-contain p-2 sm:p-3 transition duration-500 group-hover:scale-105" />
+      ${item.badge ? `<span class="absolute right-3 top-11 z-10 rounded-full px-2.5 py-1 text-[10px] font-semibold sm:right-4 sm:top-12 ${item.badge === 'Hemat' || item.badge === 'Mulus' ? 'bg-white text-ink' : 'bg-ink text-cream'}">${item.badge}</span>` : ''}
       ${condChip}
     </div>
     <div class="p-2 pb-1 sm:p-3 sm:pb-2">

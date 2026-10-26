@@ -21,7 +21,7 @@ $admin_page = 'blog';
 
     <div class="flex flex-1 flex-col overflow-hidden">
         <header class="flex h-16 items-center justify-between border-b border-silver-200 bg-white px-8">
-            <h1 class="font-display text-xl font-bold">Edit Artikel Blog</h1>
+            <h1 class="text-xl font-bold">Edit Artikel Blog</h1>
             <a href="<?= base_url('admin/blog/index.php') ?>" class="text-xs font-semibold text-neutral-400 hover:text-ink">← Kembali</a>
         </header>
 

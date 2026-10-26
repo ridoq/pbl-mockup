@@ -16,11 +16,51 @@ tailwind.config = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        display: ['"Playfair Display"', "serif"],
+        sans: [
+          "Inter",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        display: [
+          "Inter",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        calibri: [
+          "Calibri",
+          "Candara",
+          '"Segoe UI"',
+          "Arial",
+          "sans-serif",
+        ],
       },
       borderRadius: {
         "4xl": "2.5rem",
+      },
+      animation: {
+        floaty: "floaty 5.5s ease-in-out infinite",
+        "floaty-slow": "floaty 7s ease-in-out 0.8s infinite",
+        marquee: "marquee 75s linear infinite",
+      },
+      keyframes: {
+        floaty: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-14px)" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
       },
     },
   },

@@ -21,7 +21,7 @@ if ($current_page === '' || $current_page === 'index') {
                 />
                 <text x="11" y="15" text-anchor="middle" font-size="6" font-weight="800" fill="#F6F1E7" font-family="Inter, sans-serif">NF</text>
             </svg>
-            <span class="font-display text-lg font-bold tracking-wide sm:text-xl">NAFA <span class="italic">i</span>STORE</span>
+            <span class="text-lg font-bold tracking-wide sm:text-xl">NAFA <span class="italic">i</span>STORE</span>
         </a>
 
         <!-- Desktop Navigation -->

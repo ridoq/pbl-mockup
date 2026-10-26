@@ -125,7 +125,7 @@ function renderThumbs(galleryList, activeSrc) {
       const isMatch = src === activeSrc || (activeSrc && (activeSrc.endsWith(src) || src.endsWith(activeSrc)));
       const thumbUrl = typeof resolveAssetUrl === "function" ? resolveAssetUrl(src) : src;
       return `
-      <button type="button" onclick="switchImage('${src}', this)" class="overflow-hidden rounded-2xl border-2 transition ${
+      <button type="button" onclick="switchImage('${src}', this)" class="product-stage overflow-hidden rounded-2xl border-2 transition ${
         isMatch ? "border-ink" : "border-silver-200 hover:border-creamdark"
       }">
         <img src="${thumbUrl}" alt="Foto unit" class="aspect-square w-full object-contain p-1.5" />
@@ -171,15 +171,35 @@ function renderColors(colorsList) {
   const list = colorsList || (product && product.colors) || ["Default"];
   if (colorLabel) colorLabel.textContent = selColor || list[0];
 
+  // Radio bulat warna: dot berwarna + nama warna muncul saat hover
   colorOpts.innerHTML = list
-    .map(
-      (c) => `
-      <button onclick="pickColor('${c}', this)"
-        class="rounded-full border px-5 py-2.5 text-sm font-medium transition ${
-          c === selColor ? "border-ink bg-ink text-white" : "border-silver-200 hover:border-creamdark"
-        }">${c}</button>`
-    )
+    .map((c) => {
+      const active = c === selColor;
+      const hex = typeof colorHex === "function" ? colorHex(c) : "#DCD9D2";
+      return `
+      <button type="button" onclick="pickColor('${c}')" aria-label="Warna ${c}"
+        class="group/sw relative grid h-10 w-10 place-items-center rounded-full transition">
+        <span
+          class="block h-7 w-7 rounded-full transition duration-200 ${
+            active
+              ? "ring-2 ring-ink ring-offset-2"
+              : "ring-1 ring-black/10 group-hover/sw:scale-110 group-hover/sw:ring-ink/40"
+          }"
+          style="background:${hex}"></span>
+        <span
+          class="pointer-events-none absolute -top-9 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink px-3 py-1.5 text-[11px] font-semibold text-white opacity-0 shadow-lg transition duration-150 group-hover/sw:opacity-100">${c}</span>
+      </button>`;
+    })
     .join("");
+  updateMainColorChip();
+}
+
+/* Chip info warna simple di pojok kiri atas gambar utama */
+function updateMainColorChip() {
+  const holder = document.getElementById("mainColorChip");
+  if (!holder) return;
+  holder.innerHTML =
+    typeof stageColorChip === "function" && selColor ? stageColorChip(selColor, "") : "";
 }
 
 function pickStorage(label, btn) {
